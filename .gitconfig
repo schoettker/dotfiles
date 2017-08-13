@@ -1,0 +1,5 @@
+[user]
+	email = lennartschoettker@hotmail.com
+	name = LS8
+[core]
+	excludesfile = /home/chinchi/.gitignore_global

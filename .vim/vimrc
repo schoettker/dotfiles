@@ -30,9 +30,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'Raimondi/delimitMate'
   " L9 Library (Dependency for Autocomplpop)
-    Plug 'eparreno/vim-l9'
+    " Plug 'eparreno/vim-l9'
   " Auto pop up completion suggestions
-    Plug 'othree/vim-autocomplpop'
+    " Plug 'othree/vim-autocomplpop'
   " Vim Snippets
     " Plug 'MarcWeber/vim-addon-mw-utils'
     " Plug 'tomtom/tlib_vim'

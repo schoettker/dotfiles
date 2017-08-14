@@ -30,9 +30,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'Raimondi/delimitMate'
   " L9 Library (Dependency for Autocomplpop)
-    " Plug 'eparreno/vim-l9'
+    Plug 'eparreno/vim-l9'
   " Auto pop up completion suggestions
-    " Plug 'othree/vim-autocomplpop'
+    Plug 'othree/vim-autocomplpop'
   " Vim Snippets
     " Plug 'MarcWeber/vim-addon-mw-utils'
     " Plug 'tomtom/tlib_vim'
@@ -242,13 +242,13 @@ call plug#end()
   " colorscheme railscasts colorscheme mango colorscheme flatcolor colorscheme last256 hi MatchParen cterm=bold ctermbg=none  ctermfg=magenta highlight LineNr ctermfg=238 highlight Statement ctermfg=032 hi jsFuncCall ctermfg=031 hi jsFuncName ctermfg=158 hi jsFuncBlock ctermfg=015 hi jsOperator ctermfg=015 hi jsGlobalObjects ctermfg=175 hi jsFuncCall            guifg=NONE   guibg=203   gui=BOLD
 
 " leader+sp to find term for color changing
-nmap <leader>sp :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" nmap <leader>sp :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+"   if !exists("*synstack")
+"     return
+"   endif
+"   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
 " =====================================
 " End Experimental
 " =====================================

@@ -4,13 +4,15 @@
 "
 call plug#begin('~/.vim/plugged')
 
+  Plug 'roxma/nvim-completion-manager'
+  Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
   Plug 'w0rp/ale'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'scrooloose/nerdtree'
   Plug 'easymotion/vim-easymotion'
   Plug 'Yggdroot/indentLine'
@@ -54,7 +56,7 @@ call plug#end()
   " Keybindings
     let mapleader = "\<Space>" 
   " Save File
-    nnoremap <Leader>w :w<CR>
+    " nnoremap <Leader>w :w<CR>
     nnoremap <Leader>fs :w<CR>
   " Alias Q as q to quit file
     :command Q q
@@ -63,6 +65,7 @@ call plug#end()
     nnoremap <Leader>q :q<CR>
     nnoremap <Leader>bd :bd<CR>
     nnoremap <Leader><CR> <Esc>A;<Esc>^
+    nnoremap \\ :noh<return>
 
     nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
     nmap <silent> <Leader>en <Plug>(ale_next_wrap)
@@ -117,8 +120,35 @@ call plug#end()
 "
 " Omnicomplete
 " =====================================
+
+  let g:jsx_ext_required = 0
+
   filetype plugin on
   set omnifunc=syntaxcomplete#Complete
+  autocmd FileType javascript setlocal omnifunc=tern#Complete 
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+
+  au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+  " let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
+  " let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#auto_completion_start_length = 2
+  " let g:deoplete#enable_smart_case = 1
+  set completeopt=longest,menuone,preview
+  " let g:deoplete#omni#functions = {}
+  " let g:deoplete#omni#functions.javascript = [
+  "   \ 'tern#Complete',
+  "   \ 'jspc#omni'
+  " \]
+  " let g:deoplete#sources = {}
+  " let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+  let g:tern#command = ['tern']
+  let g:tern#arguments = ['--persistent']
+  " autocmd CompleteDone * pclose
+  " disable tern preview
+  set completeopt-=preview
+  " let g:deoplete#omni_patterns = {}
+  " let g:deoplete#omni_patterns.html = ''
 
 " Lightline
 " =====================================
@@ -279,28 +309,7 @@ call NERDTreeHighlightFile('js', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 2
-let g:deoplete#enable_smart_case = 1
-set completeopt=longest,menuone,preview
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
-" autocmd CompleteDone * pclose
-" disable tern preview
-set completeopt-=preview
-" let g:deoplete#omni_patterns = {}
-" let g:deoplete#omni_patterns.html = ''
 " let g:jsx_ext_required = 0
 set mouse=a
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_lint_on_text_changed = 'never'
-let g:jsx_ext_required = 0

@@ -25,8 +25,8 @@ bindsym $mod+q kill
 bindsym $mod+x kill
 bindsym $mod+d exec dmenu_run -nb '#604080' -fn 'pango'
 # bindsym $mod+r exec termite -e ranger
-# bindsym $mod+F1 exec google-chrome-stable
-bindsym $mod+F1 exec firefox
+bindsym $mod+F1 exec google-chrome-stable
+# bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec pcmanfm
 bindsym $mod+e exec emacs
 # bindsym $mod+F3 exec google-chrome-stable opt/google/chrome/google-chrome --profile-directory=Default --app-id=kfbnhhcmmpmjfkkakaplojljcodkmobo

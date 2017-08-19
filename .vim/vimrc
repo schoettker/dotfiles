@@ -63,7 +63,7 @@ call plug#end()
     nnoremap <Leader>Q :q<CR>
     nnoremap <Leader>x :q!<CR>
     nnoremap <Leader>q :q<CR>
-    nnoremap <Leader>bd :bd<CR>
+    nnoremap <Leader>bd :bp<bar>sp<bar>bn<bar>bd<CR> 
     nnoremap <Leader><CR> <Esc>A;<Esc>^
     nnoremap \\ :noh<return>
 
@@ -76,7 +76,12 @@ call plug#end()
     nnoremap <Leader>wl <C-W>l
     nnoremap <Leader>wj <C-W>j
     nnoremap <Leader>wh <C-W>h
+    nnoremap <Leader>wm <C-W>o
+    nnoremap <Leader>ww <C-W>p
+    nnoremap <Leader>wd <C-W>q
 
+    " nnoremap <Leader>ws :new<CR>
+    " nnoremap <Leader>wv :vne<CR>
     nnoremap <Leader>ws :split<CR>
     nnoremap <Leader>wv :vsplit<CR>
 
@@ -94,6 +99,8 @@ call plug#end()
 
   " Show relative line numbers
     set relativenumber
+
+    set hidden
 
   " Auto-indent new lines
     set autoindent
@@ -313,3 +320,4 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 set mouse=a
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_lint_on_text_changed = 'never'
+set scrolloff=10

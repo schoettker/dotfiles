@@ -3,3 +3,4 @@
 	name = LS8
 [core]
 	excludesfile = /home/chinchi/.gitignore_global
+	pager = cat

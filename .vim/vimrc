@@ -4,15 +4,27 @@
 "
 call plug#begin('~/.vim/plugged')
 
+" FIND SLOWING PLUGIN
+
+" NOT OK
+  " at one point if this was on relative line numbers will give massive lags might aswell correlate to italic font?
+  Plug 'othree/yajs.vim'
+
+" OK
+  Plug 'pangloss/vim-javascript'
+  Plug 'jelera/vim-javascript-syntax'
+  Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'othree/jspc.vim'
+  Plug '1995eaton/vim-better-javascript-completion'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'mxw/vim-jsx'
+  " Plug 'w0rp/ale'
+  Plug 'terryma/vim-smooth-scroll'
   Plug 'roxma/nvim-completion-manager'
   Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-  Plug 'w0rp/ale'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-  " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'scrooloose/nerdtree'
   Plug 'easymotion/vim-easymotion'
   Plug 'Yggdroot/indentLine'
@@ -21,16 +33,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'itchyny/lightline.vim'
   Plug 'hail2u/vim-css3-syntax'
-  Plug 'pangloss/vim-javascript'
-  Plug 'jelera/vim-javascript-syntax'
-  Plug 'othree/javascript-libraries-syntax.vim'
-  Plug 'othree/yajs.vim'
-  Plug '1995eaton/vim-better-javascript-completion'
-  Plug 'othree/jspc.vim'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'mxw/vim-jsx'
-  Plug 'leafgarland/typescript-vim'
   Plug 'Raimondi/delimitMate'
+  " Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+  " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " L9 Library (Dependency for Autocomplpop)
     " Plug 'eparreno/vim-l9'
   " Auto pop up completion suggestions
@@ -67,8 +74,10 @@ call plug#end()
     nnoremap <Leader><CR> <Esc>A;<Esc>^
     nnoremap \\ :noh<return>
 
-    nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
-    nmap <silent> <Leader>en <Plug>(ale_next_wrap)
+    " nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
+    " nmap <silent> <Leader>en <Plug>(ale_next_wrap)
+    " let g:ale_javascript_eslint_use_global = 1
+    " let g:ale_lint_on_text_changed = 'never'
 
   " Alternate buffers / windows
     nnoremap <Leader><Tab> <C-^>
@@ -90,9 +99,11 @@ call plug#end()
 
   " Fuzzy File Finder (Ctrl P)
     nnoremap <Leader>pf :CtrlP<CR>
-    nnoremap <Leader>bb :CtrlPBuffer<CR>
-  " Find file in current folder (folder of the currently opened file)
-    nnoremap <Leader>ff :e <C-R>=expand('%:p:h') . '/'<CR>
+    nnoremap <Leader>bf :CtrlPBuffer<CR>
+    nnoremap <Leader>bb :CtrlPMixed<CR>
+    nnoremap <Leader>ff :CtrlPMixed<CR>
+  " Find file literally in current folder (folder of the currently opened file)
+    nnoremap <Leader>fl :e <C-R>=expand('%:p:h') . '/'<CR>
   " Cycle Suggestions
     inoremap <expr> <C-J> ((pumvisible())?("\<C-n>"):("J"))
     inoremap <expr> <C-K> ((pumvisible())?("\<C-p>"):("K"))
@@ -136,26 +147,10 @@ call plug#end()
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 
   au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-  " let g:deoplete#enable_at_startup = 1
-  " let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
-  " let g:deoplete#enable_at_startup = 1
-  " let g:deoplete#auto_completion_start_length = 2
-  " let g:deoplete#enable_smart_case = 1
   set completeopt=longest,menuone,preview
-  " let g:deoplete#omni#functions = {}
-  " let g:deoplete#omni#functions.javascript = [
-  "   \ 'tern#Complete',
-  "   \ 'jspc#omni'
-  " \]
-  " let g:deoplete#sources = {}
-  " let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
-  let g:tern#command = ['tern']
-  let g:tern#arguments = ['--persistent']
   " autocmd CompleteDone * pclose
   " disable tern preview
   set completeopt-=preview
-  " let g:deoplete#omni_patterns = {}
-  " let g:deoplete#omni_patterns.html = ''
 
 " Lightline
 " =====================================
@@ -202,9 +197,9 @@ call plug#end()
 " =====================================
   set background=dark
   colorscheme quantum
-  hi Normal ctermbg=none
-  let g:quantum_italics = 1
+  let g:quantum_italics=1
   let g:quantum_black = 1
+  hi Normal ctermbg=none
 
 " Other
 " =====================================
@@ -318,6 +313,13 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 " let g:jsx_ext_required = 0
 set mouse=a
-let g:ale_javascript_eslint_use_global = 1
-let g:ale_lint_on_text_changed = 'never'
-set scrolloff=10
+set scrolloff=5
+highlight Comment cterm=italic
+" set t_ZH=[3m
+" set t_ZR=[23m
+set re=1
+set lazyredraw
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 1)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 1)<CR>

@@ -1,7 +1,7 @@
 [options]
 # Standard
 # font = Office Code Pro 11
-font = Fantasque Sans Mono 12
+font = Fantasque Sans Mono 14
 # font = Inconsolata 12
 
 
@@ -19,6 +19,9 @@ font = Fantasque Sans Mono 12
 # font = SauceCodePro Nerd Font Regular 11
 # font = Fira Mono 11
 # font = Operator Mono Light 11
+
+allow_bold = false
+mouse_autohide = true
 
 [colors]
 

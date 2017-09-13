@@ -10,6 +10,11 @@ call plug#begin('~/.vim/plugged')
   " at one point if this was on relative line numbers will give massive lags might aswell correlate to italic font?
   Plug 'othree/yajs.vim'
 
+  Plug 'airblade/vim-gitgutter'
+  
+  Plug 'morhetz/gruvbox'
+
+
 " OK
   Plug 'pangloss/vim-javascript'
   Plug 'jelera/vim-javascript-syntax'
@@ -98,15 +103,17 @@ call plug#end()
     nnoremap <Leader>' :below 5sp term://$SHELL<cr>i
 
   " Fuzzy File Finder (Ctrl P)
+    " let g:ctrlp_working_path_mode = 'ra'
+    nnoremap <Leader>pp :CtrlP<CR>
     nnoremap <Leader>pf :CtrlP<CR>
-    nnoremap <Leader>bf :CtrlPBuffer<CR>
-    nnoremap <Leader>bb :CtrlPMixed<CR>
-    nnoremap <Leader>ff :CtrlPMixed<CR>
+    nnoremap <Leader>bb :CtrlPBuffer<CR>
+    nnoremap <Leader>bf :CtrlPBuffer<<CR>
+    nnoremap <Leader>ff :CtrlP<CR>
   " Find file literally in current folder (folder of the currently opened file)
     nnoremap <Leader>fl :e <C-R>=expand('%:p:h') . '/'<CR>
   " Cycle Suggestions
-    inoremap <expr> <C-J> ((pumvisible())?("\<C-n>"):("J"))
-    inoremap <expr> <C-K> ((pumvisible())?("\<C-p>"):("K"))
+    " inoremap <expr> <C-J> ((pumvisible())?("\<C-n>"):("J"))
+    " inoremap <expr> <C-K> ((pumvisible())?("\<C-p>"):("K"))
 
   " Show relative line numbers
     set relativenumber
@@ -167,7 +174,7 @@ call plug#end()
     endif
 
   let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'seoul256',
       \ 'component_function': {
       \   'filename': 'LightLineFilename'
       \ },
@@ -196,9 +203,11 @@ call plug#end()
 " Colorscheme Settings
 " =====================================
   set background=dark
-  colorscheme quantum
-  let g:quantum_italics=1
-  let g:quantum_black = 1
+  " colorscheme quantum
+  " let g:quantum_italics=1
+  " let g:quantum_black = 1
+  let g:gruvbox_italic=1
+  colorscheme gruvbox
   hi Normal ctermbg=none
 
 " Other
@@ -323,3 +332,5 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 1)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 1)<CR>
+
+au BufReadPost *.vue set syntax=html

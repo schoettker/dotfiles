@@ -1,35 +1,43 @@
-# # Set mod key (Mod1=Alt, Mod4=Super)
+######################################################
+# # # Misc # # #
+######################################################
 set $mod Mod1
+workspace 1 output HDMI-1
+font pango:Overpass Mono 10
+new_window pixel 0
+floating_modifier $mod
+gaps inner 15
+gaps outer 10
+for_window [class="^.*"] border pixel 3
+smart_borders on
 
-# # Executions
+######################################################
+# # # Autostart # # #
+######################################################
 exec_always ./.monitor.sh
 exec compton --config ~/.config/compton.conf
 exec xmodmap ~/.xmodmap
-exec_always feh --bg-scale /home/chinchi/Pictures/image3.jpg
-exec sleep 1 && feh --bg-scale /home/chinchi/Pictures/image3.jpg
+exec_always feh --bg-scale /home/chinchi/Pictures/chicago/julien-r-255946.jpg
+exec sleep 1 && feh --bg-scale /home/chinchi/Pictures/chicago/julien-r-255946.jpg
 exec redshift
 # exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 # exec --no-startup-id redshift-gtk
 
-# # KEYBINDINGS
-# # toggle tiling / floating
+######################################################
+# # # Keybindings # # #
+######################################################
 bindsym $mod+f floating toggle
-bindsym $mod+t exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/chinchi/.config/i3/terminals.json'"
 bindsym $mod+i layout stacking
 bindsym $mod+o layout tabbed
 bindsym $mod+p layout toggle split
-bindsym $mod+Return exec xfce4-terminal #termite # -e tmux
+bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite -d "$(xcwd)"
 bindsym $mod+r exec subl3
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
-bindsym $mod+x kill
-bindsym $mod+d exec dmenu_run -nb '#604080' -fn 'pango'
-# bindsym $mod+r exec termite -e ranger
+bindsym $mod+d exec rofi -show run
 bindsym $mod+F1 exec google-chrome-stable
-# bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec pcmanfm
-bindsym $mod+e exec emacs
-# bindsym $mod+F3 exec google-chrome-stable opt/google/chrome/google-chrome --profile-directory=Default --app-id=kfbnhhcmmpmjfkkakaplojljcodkmobo
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -40,21 +48,98 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 bindsym $mod+s mode "resize"
 bindsym $mod+v split toggle
-# bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+g gaps inner all set 0, gaps outer all set 0
 bindsym $mod+plus gaps inner all plus 5, gaps outer all plus 5
 bindsym $mod+minus gaps inner all minus 5, gaps outer all minus 5
+# bindsym $mod+d exec dmenu_run -nb '#604080' -fn 'pango'
+# bindsym $mod+f fullscreen toggle
+# bindsym $mod+e exec emacs
+# bindsym $mod+r exec termite -e ranger
+# bindsym $mod+F3 exec google-chrome-stable opt/google/chrome/google-chrome --profile-directory=Default --app-id=kfbnhhcmmpmjfkkakaplojljcodkmobo
 
 ######################################################
-# # # Other Settings # # #
+# # # Bar(s) # # #
 ######################################################
-workspace 1 output HDMI-1
-font pango:DejaVu Sans 10
-new_window pixel 0
-# gaps inner 5
-# gaps outer 5
+bar {
+  font pango:Overpass Mono 11
+  status_command /usr/bin/bumblebee-status -m redshift weather pasink memory disk datetime -p weather.location="Hannover" disk.path=/home memory.format="{used}" disk.format="{used}" datetime.format="%a %m/%d/%y %I:%M %p" home.path=/home -t eightiie
+  position top
+  colors {
+    background #393939
+    # separator #757575
+    #                      border             background         text
+        focused_workspace  #666666            #1d2021            #ffffff
+        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    }
+    #-m pasink pasource battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %I:%M %p" -t kulade
+}
+# bar {
+#   status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#     separator_symbol "|"
+#     position top
+#     workspace_buttons yes
+#     colors {
+#       background $bg-color
+# # separator #757575
+# #                  border             background         text
+#         focused_workspace  $bg-color          $bg-color   #ffffff
+#         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#     }
+# }
+
+######################################################
+# # # Colors # # #
+######################################################
+set $bg-color            #282828
+set $inactive-bg-color   #393939
+set $text-color          #ffff00
+set $inactive-text-color #ebdbb2
+set $urgent-bg-color     #E53935
+set $back #00838f 
+set $urg #e06c75
+set $green #ec407a
+set $accent #604080
+#class                  border  background  text    indicator       child_border
+client.focused          $green  $green      $back   $accent
+client.focused_inactive $green  $green      $back   $back
+client.unfocused        $back   $back       $green  $back
+client.urgent           $urg    $urg        $back   $back
+# client.focused          #ffffff  $bg-color          $text-color          #00ff00
+# client.unfocused        #ffffff  $inactive-bg-color $inactive-text-color #00ff00
+# client.focused_inactive #ffffff  $inactive-bg-color $inactive-text-color #00ff00
+# client.urgent           #ffffff  $urgent-bg-color   $text-color          #00ff00
+# ARC
+# set $bg-color            #22333A
+# set $inactive-bg-color            #22333A
+# set $green #98c379
+# set $accent #d6ab77
+# set $inactive-bg-color   #2f343f
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+
+######################################################
+# # # Modes # # #
+######################################################
+mode "resize" {
+  bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+
+######################################################
+# # # Workspace Settings # # #
+######################################################
 # # Workspace Variables
 set $ws1 1
 set $ws2 2
@@ -91,48 +176,6 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-# # Colors
-# set $bg-color            #2f343f
-# set $bg-color            #604080
-# set $bg-color            #063D48
-set $bg-color            #22333A
-set $inactive-bg-color            #22333A
-# set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-client.focused          #ffffff           $bg-color          $text-color          #00ff00
-client.unfocused        #ffffff  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive #ffffff  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           #ffffff    $urgent-bg-color   $text-color          #00ff00
-# # Modes
-mode "resize" {
-  bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
-# back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bar {
-  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    separator_symbol " | "
-    position top
-    workspace_buttons yes
-    colors {
-      background $bg-color
-# separator #757575
-#                  border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
-        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-    }
-}
-
 ######################################################
 # # # Old Comments # # #
 ######################################################
@@ -152,76 +195,6 @@ bar {
 # # X core fonts rendering does not support right-to-left and this being a bitmap
 # # font, it doesn’t scale on retina/hidpi displays.
 # # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-# # start a terminal
-# -e fish
-# # kill focused window
-# # start rofi (a program launcher)
-## bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -fullscreen -width 100 -padding 400 -bw 0 -line-margin 0 -hide-scrollbar
-# -show run -width 100 -padding 800 -lines 3 -eh 2  -bw 0 
-# # launch categorized menu
-# bindsym $mod+z exec morc_menu
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-# Toggle split direction
-# # split in horizontal orientation
-# # bindsym $mod+h split h
-# # split in vertical orientation
-# #bindsym $mod+v split v
-# # enter fullscreen mode for the focused container
-# # change container layout (stacked, tabbed, toggle split)
-# # focus the parent container
-# bindsym $mod+a focus parent
-# # focus the child container
-# #bindsym $mod+d focus child
-# # reload the configuration file
-# # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# # Workspace names
 # # to display names or symbols instead of plain workspace numbers you can use
 # # something like: set $ws1 1:mail
 # #                 set $ws2 2:
-# # switch to workspace
-# # Open applications on specific workspaces
-# # assign [class="Thunderbird"] $ws1
-# # assign [class="Pale moon"] $ws2
-# # assign [class="Pcmanfm"] $ws3
-# # assign [class="Skype"] $ws5
-# assign [class="Firefox"] $ws1
-# assign [class="Pcmanfm"] $ws4
-# assign [class="Google-chrome"] $ws5
-# assign [class="crx_kfbnhhcmmpmjfkkakaplojljcodkmobo"] $ws5
-# exec_always xrdb ~/.Xresources
-# exec google-chrome-stable opt/google/chrome/google-chrome --profile-directory=Default --app-id=kfbnhhcmmpmjfkkakaplojljcodkmobo
-# exec compton -f --config ~/.compton.conf --backend xrender
-# exec compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --shadow-exclude "! name~=''" --config ~/.compton.conf -b &
-# --xrender-sync --xrender-sync-fence 
-# Set inner/outer gaps
-# gaps inner 5
-# gaps outer 5
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#gaps
-gaps inner 27
-gaps outer 15
-for_window [class="^.*"] border pixel 3
-set $back #444040
-set $urg #e06c75
-set $green #60bfbf
-set $accent #604080
-# set $green #98c379
-# set $accent #d6ab77
-
-#colors
-#class                  border  background  text    indicator       child_border
-client.focused          $green  $green      $back   $accent
-client.focused_inactive $green  $green      $back   $back
-client.unfocused        $back   $back       $green  $back
-client.urgent           $urg    $urg        $back   $back
-smart_borders on
-# smart_gaps on
-# # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle

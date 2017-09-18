@@ -4,3 +4,7 @@
 [core]
 	excludesfile = /home/chinchi/.gitignore_global
 	pager = cat
+[alias]
+        l = log --oneline --decorate --all --graph
+	s = status -s
+        lg = log --oneline --reverse

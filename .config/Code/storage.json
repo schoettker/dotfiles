@@ -440,6 +440,7 @@
             "/home/chinchi/.config/Code/User/snippets/javascript.json"
         ],
         "folders": [
+            "/home/chinchi/Dev/booktrading",
             "/home/chinchi/Dev/how-to-npm",
             "/home/chinchi/Dev/hackernews",
             "/home/chinchi/Dev/nightlife-app",
@@ -478,15 +479,15 @@
         "openedWindows": [],
         "openedFolders": [],
         "lastActiveWindow": {
-            "workspacePath": "/home/chinchi/Dev/how-to-npm",
+            "workspacePath": "/home/chinchi/Dev/booktrading",
             "uiState": {
                 "mode": 1,
-                "x": 12,
-                "y": 35,
-                "width": 1342,
-                "height": 721
+                "x": 24,
+                "y": 50,
+                "width": 1872,
+                "height": 1006
             },
-            "backupPath": "/home/chinchi/.config/Code/Backups/59143da9dbc2b412455d7561e2ccc6c8"
+            "backupPath": "/home/chinchi/.config/Code/Backups/35fdff32218f5e6222fda69050ed39e2"
         }
     },
     "telemetry.machineId": "1508b337707df342210e0597e6d2e361e41c8aca76dcc5fb47f1f3249ab037bd",

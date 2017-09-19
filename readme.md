@@ -3,7 +3,7 @@
 ## Requisites
 `sudo pacman -S yaourt compton xorg-xmodmap feh redshift termite pcmanfm rofi neovim`
 
-`yaourt -S xcwd-git google-chrome postman ttf-hack xtitle otf-overpass`
+`yaourt -S xcwd-git google-chrome postman ttf-hack xtitle otf-overpass bumblebee-status-git`
 
 ## Steps to take
 Symlink nvim folder to .vim

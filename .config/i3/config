@@ -64,7 +64,7 @@ bindsym $mod+minus gaps inner all minus 5, gaps outer all minus 5
 ######################################################
 bar {
   font pango:Overpass Mono 11
-  status_command /usr/bin/bumblebee-status -m redshift weather pasink memory disk datetime -p weather.location="Hannover" disk.path=/home memory.format="{used}" disk.format="{used}" datetime.format="%a %m/%d/%y %I:%M %p" home.path=/home -t eightiie
+  status_command /usr/bin/bumblebee-status -m redshift weather pasink memory disk datetime -p weather.location="Hannover" disk.path=/home memory.format="{used}" disk.format="{used}" datetime.format="%a %m/%d/%y %I:%M %p" home.path=/home -t gruvy
   position top
   colors {
     background #393939
@@ -77,12 +77,13 @@ bar {
     #-m pasink pasource battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %I:%M %p" -t kulade
 }
 # bar {
+#   font pango:Overpass Mono 11
 #   status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #     separator_symbol "|"
 #     position top
 #     workspace_buttons yes
 #     colors {
-#       background $bg-color
+#     background #393939
 # # separator #757575
 # #                  border             background         text
 #         focused_workspace  $bg-color          $bg-color   #ffffff

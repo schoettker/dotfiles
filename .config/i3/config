@@ -52,6 +52,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+g gaps inner all set 0, gaps outer all set 0
 bindsym $mod+plus gaps inner all plus 5, gaps outer all plus 5
 bindsym $mod+minus gaps inner all minus 5, gaps outer all minus 5
+bindsym $mod+e exec termite -e nvim
 # bindsym $mod+d exec dmenu_run -nb '#604080' -fn 'pango'
 # bindsym $mod+r exec subl3
 # bindsym $mod+f fullscreen toggle

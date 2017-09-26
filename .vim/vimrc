@@ -79,7 +79,7 @@ call plug#end()
     nnoremap <Leader>wl <C-W>l
     nnoremap <Leader>wj <C-W>j
     nnoremap <Leader>wh <C-W>h
-    nnoremap <Leader>wm <C-W>o
+    nnoremap <Leader>wm :call MaximizeToggle()<CR>
     nnoremap <Leader>ww <C-W>p
     nnoremap <Leader>wd <C-W>q
     nnoremap <Leader>ws :split<CR>
@@ -116,7 +116,6 @@ call plug#end()
 " let g:ale_javascript_eslint_use_global = 1
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ctrlp_working_path_mode = 'ra'
-  " let g:jsx_ext_required = 0
 
 " Omnicomplete
 " ============
@@ -210,6 +209,22 @@ let delimitMate_expand_cr = 1
 :set timeout timeoutlen=3000 ttimeoutlen=100
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+  else
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
+endfunction
+
 " End Plug in settings & customization
 " =====================================
 
@@ -224,6 +239,8 @@ let g:vim_json_syntax_conceal = 0
 set conceallevel=0
 autocmd FileType json let g:indentLine_setConceal = 0
 autocmd BufRead,BufNewFile *.vue setlocal filetype=html
+let g:jsx_ext_required = 0
+
 " let g:jsx_ext_required = 0
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=html.javascript.css
 " leader+sp to find term for color changing

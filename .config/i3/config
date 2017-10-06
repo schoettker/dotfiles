@@ -6,10 +6,12 @@ workspace 1 output HDMI-1
 font pango:Overpass Mono 10
 new_window pixel 0
 floating_modifier $mod
-gaps inner 15
-gaps outer 10
 for_window [class="^.*"] border pixel 3
 smart_borders on
+gaps inner 0
+gaps outer 0
+# gaps inner 15
+# gaps outer 10
 
 ######################################################
 # # # Autostart # # #
@@ -31,7 +33,7 @@ bindsym $mod+i layout stacking
 bindsym $mod+o layout tabbed
 bindsym $mod+p layout toggle split
 bindsym $mod+Return exec termite
-bindsym $mod+Shift+Return exec termite -d "$(xcwd)"
+# bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 bindsym $mod+d exec rofi -show run
@@ -52,7 +54,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+g gaps inner all set 0, gaps outer all set 0
 bindsym $mod+plus gaps inner all plus 5, gaps outer all plus 5
 bindsym $mod+minus gaps inner all minus 5, gaps outer all minus 5
-bindsym $mod+e exec termite -e nvim
+bindsym $mod+e exec termite -e 'zsh -c "nvim && zsh"' --hold &
 # bindsym $mod+d exec dmenu_run -nb '#604080' -fn 'pango'
 # bindsym $mod+r exec subl3
 # bindsym $mod+f fullscreen toggle
@@ -63,17 +65,35 @@ bindsym $mod+e exec termite -e nvim
 ######################################################
 # # # Bar(s) # # #
 ######################################################
+
+#### GRUVY
+# bar {
+#   font pango:Overpass Mono 11
+#   status_command /usr/bin/bumblebee-status -m redshift weather pasink memory disk datetime -p weather.location="Hannover" disk.path=/home memory.format="{used}" disk.format="{used}" datetime.format="%a %m/%d/%y %I:%M %p" home.path=/home -t gruvy
+#   position top
+#   colors {
+#     background #393939
+#     # separator #757575
+#     #                      border             background         text
+#         focused_workspace  #666666            #1d2021            #ffffff
+#         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#     }
+#     #-m pasink pasource battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %I:%M %p" -t kulade
+# }
+#### ARCHY
 bar {
   font pango:Overpass Mono 11
-  status_command /usr/bin/bumblebee-status -m redshift weather pasink memory disk datetime -p weather.location="Hannover" disk.path=/home memory.format="{used}" disk.format="{used}" datetime.format="%a %m/%d/%y %I:%M %p" home.path=/home -t gruvy
+  status_command /usr/bin/bumblebee-status -m redshift weather pasink memory disk datetime -p weather.location="Hannover" disk.path=/home memory.format="{used}" disk.format="{used}" datetime.format="%a %m/%d/%y %I:%M %p" home.path=/home -t archy
   position top
   colors {
-    background #393939
+    background #282c34
     # separator #757575
     #                      border             background         text
         focused_workspace  #666666            #1d2021            #ffffff
-        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+
+        inactive_workspace #282c34            #282c34            #fbf1c7
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   #ffffff
     }
     #-m pasink pasource battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %I:%M %p" -t kulade
 }

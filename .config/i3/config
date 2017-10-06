@@ -7,7 +7,7 @@ font pango:Overpass Mono 10
 new_window pixel 0
 floating_modifier $mod
 for_window [class="^.*"] border pixel 3
-smart_borders on
+# smart_borders on
 gaps inner 0
 gaps outer 0
 # gaps inner 15
@@ -36,7 +36,7 @@ bindsym $mod+Return exec termite
 # bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
-bindsym $mod+d exec rofi -show run
+# bindsym $mod+d exec rofi -show run
 bindsym $mod+F1 exec google-chrome-stable
 bindsym $mod+F2 exec pcmanfm
 bindsym $mod+h focus left
@@ -55,7 +55,7 @@ bindsym $mod+g gaps inner all set 0, gaps outer all set 0
 bindsym $mod+plus gaps inner all plus 5, gaps outer all plus 5
 bindsym $mod+minus gaps inner all minus 5, gaps outer all minus 5
 bindsym $mod+e exec termite -e 'zsh -c "nvim && zsh"' --hold &
-# bindsym $mod+d exec dmenu_run -nb '#604080' -fn 'pango'
+bindsym $mod+d exec dmenu_run -nb '#282c34' -fn 'Overpass Mono'
 # bindsym $mod+r exec subl3
 # bindsym $mod+f fullscreen toggle
 # bindsym $mod+e exec emacs
@@ -121,15 +121,17 @@ set $inactive-bg-color   #393939
 set $text-color          #ffff00
 set $inactive-text-color #ebdbb2
 set $urgent-bg-color     #E53935
-set $back #00838f 
+set $back #dee3e0 
 set $urg #e06c75
 set $green #ec407a
 set $accent #604080
+
 #class                  border  background  text    indicator       child_border
-client.focused          $green  $green      $back   $accent
-client.focused_inactive $green  $green      $back   $back
-client.unfocused        $back   $back       $green  $back
+client.focused          #6986a0 #282c34     #fbf1c7    $back          #6986a0
+client.focused_inactive #6986a0 #282c34     #fbf1c7     $back          #6986a0
+client.unfocused        #343C48 #282c34     #6986a0   $back
 client.urgent           $urg    $urg        $back   $back
+
 # client.focused          #ffffff  $bg-color          $text-color          #00ff00
 # client.unfocused        #ffffff  $inactive-bg-color $inactive-text-color #00ff00
 # client.focused_inactive #ffffff  $inactive-bg-color $inactive-text-color #00ff00

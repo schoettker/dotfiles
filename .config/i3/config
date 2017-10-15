@@ -7,11 +7,11 @@ font pango:Overpass Mono 10
 new_window pixel 0
 floating_modifier $mod
 for_window [class="^.*"] border pixel 3
-# smart_borders on
-gaps inner 0
-gaps outer 0
-# gaps inner 15
-# gaps outer 10
+smart_borders on
+# gaps inner 0
+# gaps outer 0
+gaps inner 30
+gaps outer 30
 
 ######################################################
 # # # Autostart # # #
@@ -19,8 +19,8 @@ gaps outer 0
 exec_always ./.monitor.sh
 exec compton --config ~/.config/compton.conf
 exec xmodmap ~/.xmodmap
-exec_always feh --bg-scale /home/chinchi/Pictures/chicago/julien-r-255946.jpg
-exec sleep 1 && feh --bg-scale /home/chinchi/Pictures/chicago/julien-r-255946.jpg
+exec_always feh --bg-scale /home/chinchi/Pictures/imgur_wallpaper_album/189\ -\ 5Q4LF58.jpg
+exec sleep 1 && feh --bg-scale /home/chinchi/Pictures/imgur_wallpaper_album/189\ -\ 5Q4LF58.jpg
 exec redshift
 # exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 # exec --no-startup-id redshift-gtk

@@ -5,7 +5,7 @@ application/javascript=org.gnome.gedit.desktop;
 application/epub+zip=easy-ebook-viewer.desktop;
 image/jpeg=photoqt.desktop;userapp-feh-2IMTXY.desktop;
 application/vnd.apple.mpegurl=vlc.desktop;
-image/png=photoqt.desktop;userapp-feh-M4XKZY.desktop;
+image/png=google-chrome.desktop;photoqt.desktop;userapp-feh-M4XKZY.desktop;
 
 [Default Applications]
 application/javascript=org.gnome.gedit.desktop

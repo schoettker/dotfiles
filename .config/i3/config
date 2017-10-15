@@ -54,7 +54,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+g gaps inner all set 0, gaps outer all set 0
 bindsym $mod+plus gaps inner all plus 5, gaps outer all plus 5
 bindsym $mod+minus gaps inner all minus 5, gaps outer all minus 5
-bindsym $mod+e exec termite -e 'zsh -c "nvim && zsh"' --hold &
+# bindsym $mod+e exec termite -e 'zsh -c "nvim && zsh"' --hold &
+bindsym $mod+e exec emacs
 bindsym $mod+d exec dmenu_run -nb '#282c34' -fn 'Overpass Mono'
 # bindsym $mod+r exec subl3
 # bindsym $mod+f fullscreen toggle

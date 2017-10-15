@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export PATH=/home/chinchi/.gem/ruby/2.4.0
 # export CC=/usr/bin/gcc
 alias vim=nvim
+alias v=nvim
 alias p=pcmanfm .
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 autoload -U promptinit; promptinit

@@ -1,0 +1,51 @@
+{
+    "window.menuBarVisibility": "hidden",
+    "workbench.colorTheme": "Material Theme",
+    "editor.fontFamily": " 'Fantasque Sans Mono', 'Operator Mono Medium', 'Source Code Pro', 'Office Code Pro', 'Fira Mono' ",
+    "editor.fontSize": 16,
+    "editor.acceptSuggestionOnEnter": "on",
+    "keyboard.dispatch": "keyCode",
+    "editor.lineNumbers": "relative",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "boundary",
+    "editor.parameterHints": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "vim.leader": "<space>",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [ "leader", "f", "s" ],
+            "commands": [ { "command": "workbench.action.files.save" }
+            ]
+        },
+        {
+            "before": [ "leader", "q" ],
+            "commands": [ 
+                { "command": "workbench.action.files.save" },
+                { "command": "workbench.action.closeActiveEditor" }
+            ]
+        }
+    ],
+    "vim.easymotion": true,
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "editor.renderIndentGuides": true,
+    "workbench.colorCustomizations": {
+        "statusBarBackground" : "#1A1A1A",
+        "statusBarNoFolderBackground" : "#0A0A0D",
+        "statusBarDebuggingBackground": "#511f1f"
+    },
+    "ActiveFileInStatusBar.fullpath": false,
+    "editor.snippetSuggestions": "top",
+    "window.zoomLevel": 0,
+    "update.channel": "none",
+    "git.confirmSync": false,
+    "workbench.statusBar.visible": true,
+    "vim.enableNeovim": true,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.wordWrap": "on",
+    "typescript.check.tscVersion": false
+}

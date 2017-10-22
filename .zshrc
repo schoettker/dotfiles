@@ -11,6 +11,8 @@
 # ZSH_THEME="amuse"
 # ZSH_THEME="jnrowe"
 # ZSH_THEME="pygmalion"
+# ZSH_THEME="norm"
+ ZSH_THEME="smt"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,10 +95,10 @@ alias vim=nvim
 alias v=nvim
 alias p=pcmanfm .
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
-autoload -U promptinit; promptinit
+# autoload -U promptinit; promptinit
 
 # optionally define some options
-PURE_CMD_MAX_EXEC_TIME=10
+# PURE_CMD_MAX_EXEC_TIME=10
 
-prompt pure
+# prompt pure
 bindkey '^f' autosuggest-accept

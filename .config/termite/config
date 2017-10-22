@@ -3,6 +3,7 @@ font = Fantasque Sans Mono 14
 # font = Operator Mono Semi-Light 14
 allow_bold = false
 mouse_autohide = true
+scrollback_lines = 10000
 [colors]
 # special
 foreground      = #eceff1

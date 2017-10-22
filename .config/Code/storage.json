@@ -411,7 +411,7 @@
             "isNative": true
         }
     },
-    "theme": "vs-dark zhuangtongfa-Material-theme-themes-OneDark-Pro-json",
+    "theme": "vs-dark Equinusocio-vsc-material-theme-themes-Material-Theme-Palenight-json",
     "pickerWorkingDir": "/home/chinchi/docker_udemy/docker_mastery",
     "openedPathsList": {
         "files": [
@@ -477,5 +477,5 @@
         }
     },
     "telemetry.machineId": "1508b337707df342210e0597e6d2e361e41c8aca76dcc5fb47f1f3249ab037bd",
-    "themeBackground": "#282c34"
+    "themeBackground": "#292d3e"
 }

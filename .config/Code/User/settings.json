@@ -1,8 +1,8 @@
 {
     "window.menuBarVisibility": "hidden",
     "workbench.colorTheme": "Material Theme",
-    "editor.fontFamily": " 'Fantasque Sans Mono', 'Operator Mono Medium', 'Source Code Pro', 'Office Code Pro', 'Fira Mono' ",
-    "editor.fontSize": 16,
+    "editor.fontFamily": " 'Hack', 'Operator Mono Medium', 'Source Code Pro', 'Office Code Pro', 'Fira Mono' ",
+    "editor.fontSize": 15,
     "editor.acceptSuggestionOnEnter": "on",
     "keyboard.dispatch": "keyCode",
     "editor.lineNumbers": "relative",
@@ -15,29 +15,18 @@
         "comments": true,
         "strings": true
     },
-    "vim.leader": "<space>",
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": [ "leader", "f", "s" ],
-            "commands": [ { "command": "workbench.action.files.save" }
-            ]
-        },
-        {
-            "before": [ "leader", "q" ],
-            "commands": [ 
-                { "command": "workbench.action.files.save" },
-                { "command": "workbench.action.closeActiveEditor" }
-            ]
-        }
-    ],
     "vim.easymotion": true,
     "workbench.iconTheme": "eq-material-theme-icons",
     "editor.renderIndentGuides": true,
-    "workbench.colorCustomizations": {
-        "statusBarBackground" : "#1A1A1A",
-        "statusBarNoFolderBackground" : "#0A0A0D",
-        "statusBarDebuggingBackground": "#511f1f"
-    },
+    // "workbench.colorCustomizations": {
+    //     "statusBarBackground": "#1A1A1A",
+    //     "statusBarNoFolderBackground": "#0A0A0D",
+    //     "statusBarDebuggingBackground": "#511f1f",
+    //     "tab.activeBackground": "#282c34",
+    //     "activityBar.background": "#282c34",
+    //     "editorGroup.background": "#282c34",
+    //     "sideBar.background": "#282c34"
+    // },
     "ActiveFileInStatusBar.fullpath": false,
     "editor.snippetSuggestions": "top",
     "window.zoomLevel": 0,
@@ -47,5 +36,115 @@
     "vim.enableNeovim": true,
     "vim.disableAnnoyingNeovimMessage": true,
     "editor.wordWrap": "on",
-    "typescript.check.tscVersion": false
+    "typescript.check.tscVersion": false,
+    "materialTheme.cache.workbench.settings": {
+        "themeColours": "Palenight"
+    },
+    "vim.leader": "<space>",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [ "leader", "f", "s" ],
+            "commands": [ { "command": "workbench.action.files.save" } ]
+        },
+        {
+            "before": [ "leader", "q" ],
+            "commands": [ 
+                { "command": "workbench.action.files.save" },
+                { "command": "workbench.action.closeActiveEditor" }
+            ]
+        },
+        {
+            "before": [ "leader", "w", "v" ],
+            "commands": [ { "command": "workbench.action.splitEditor" } ]
+        },
+        {
+            "before": [ "leader", "w", "H" ],
+            "commands": [ { "command": "workbench.action.moveActiveEditorGroupLeft" } ]
+        },
+        {
+            "before": [ "leader", "w", "L" ],
+            "commands": [ { "command": "workbench.action.moveActiveEditorGroupRight" } ]
+        },
+        {
+            "before": [ "leader", "w", "h" ],
+            "commands": [ { "command":  "workbench.action.navigateLeft" } ]
+        },
+        {
+            "before": [ "leader", "w", "l" ],
+            "commands": [ { "command":  "workbench.action.navigateRight" } ]
+        },
+        {
+            "before": [ "leader", "w", "k" ],
+            "commands": [ { "command":  "workbench.action.navigateUp" } ]
+        },
+        {
+            "before": [ "leader", "w", "j" ],
+            "commands": [ { "command":  "workbench.action.navigateDown" } ]
+        },
+        {
+            "before": [ "leader", "tab"],
+            "commands": [ { "command":  "workbench.action.openNextRecentlyUsedEditorInGroup" } ]
+        },
+        {
+            "before": [ "leader", "f", "t"],
+            "commands": [ { "command":  "workbench.view.explorer" } ]
+        },
+        {
+            "before": [ "leader", "g", "s"],
+            "commands": [ { "command":  "workbench.view.scm" } ]
+        },
+        {
+            "before": [ "leader", "p", "s"],
+            "commands": [ { "command":  "workbench.view.search" } ]
+        },
+        {
+            "before": [ "leader", "/"],
+            "commands": [ { "command":  "workbench.action.findInFiles" } ]
+        },
+        {
+            "before": [ "leader", "n"],
+            "commands": [ { "command":  "workbench.action.nextEditorInGroup" } ]
+        },
+        {
+            "before": [ "leader", "p"],
+            "commands": [ { "command":  "workbench.action.previousEditorInGroup" } ]
+        },
+        {
+            "before": [ "leader", "d", "p"],
+            "commands": [ { "command":  "editor.action.previewDeclaration" } ]
+        },
+        {
+            "before": [ "leader", "d", "a"],
+            "commands": [ { "command":  "editor.action.referenceSearch.trigger" } ]
+        },
+        {
+            "before": [ "leader", "d", "s"],
+            "commands": [ { "command":  "workbench.action.showAllSymbols" } ]
+        },
+        {
+            "before": [ "leader", "d", "f"],
+            "commands": [ { "command":  "workbench.action.gotoSymbol" } ]
+        },
+        {
+            "before": [ "leader", "d", "g"],
+            "commands": [ { "command":  "editor.action.goToDeclaration" } ]
+        },
+        {
+            "before": [ "leader", "e", "n"],
+            "commands": [ { "command":  "editor.action.marker.next" } ]
+        },
+        {
+            "before": [ "leader", "e", "p"],
+            "commands": [ { "command":  "editor.action.marker.prev" } ]
+        },
+        {
+            "before": [ "leader", "`"],
+            "commands": [ { "command":  "extension.gotoLastEditLocation" } ]
+        },
+        {
+            "before": [ "leader", "'"],
+            "commands": [ { "command":  "workbench.action.terminal.toggleTerminal" } ]
+        }
+    ],
+    "workbench.quickOpen.closeOnFocusLost": true
 }

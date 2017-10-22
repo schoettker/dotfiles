@@ -8,10 +8,13 @@ new_window pixel 0
 floating_modifier $mod
 for_window [class="^.*"] border pixel 3
 smart_borders on
-# gaps inner 0
-# gaps outer 0
-gaps inner 30
-gaps outer 30
+gaps inner 0
+gaps outer 0
+# gaps inner 30
+# gaps outer 30
+for_window [class="Pcmanfm" instance="pcmanfm"] floating enable
+for_window [class="Lxappearance" instance="lxappearance"] floating enable
+
 
 ######################################################
 # # # Autostart # # #
@@ -33,6 +36,7 @@ bindsym $mod+i layout stacking
 bindsym $mod+o layout tabbed
 bindsym $mod+p layout toggle split
 bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite -d "$(xcwd)"
 # bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill

@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/chinchi/.oh-my-zsh
+  export EDITOR="/usr/bin/nvim"
   source /usr/share/z/z.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"

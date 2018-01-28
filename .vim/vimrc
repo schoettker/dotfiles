@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'Raimondi/delimitMate'
+Plug 'Quramy/tsuquyomi', {'do': 'gmake'}
 " Plug 'w0rp/ale'
 " Vim Snippets
 " Plug 'MarcWeber/vim-addon-mw-utils'
@@ -255,6 +256,7 @@ let g:indentLine_leadingSpaceChar = '.'
 tnoremap <Esc> <C-\><C-n>
 let g:vim_json_syntax_conceal = 0
 set conceallevel=0
+let g:indentLine_fileTypeExclude = ['markdown']
 autocmd FileType json let g:indentLine_setConceal = 0
 autocmd BufRead,BufNewFile *.vue setlocal filetype=html
 let g:jsx_ext_required = 0

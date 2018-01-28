@@ -1,7 +1,7 @@
 ######################################################
 # # # Misc # # #
 ######################################################
-set $mod Mod1
+set $mod Mod4
 workspace 1 output HDMI-1
 font pango:Overpass Mono 10
 new_window pixel 0
@@ -22,8 +22,11 @@ for_window [class="Lxappearance" instance="lxappearance"] floating enable
 exec_always ./.monitor.sh
 exec compton --config ~/.config/compton.conf
 exec xmodmap ~/.xmodmap
-exec_always feh --bg-scale /home/chinchi/Pictures/imgur_wallpaper_album/189\ -\ 5Q4LF58.jpg
-exec sleep 1 && feh --bg-scale /home/chinchi/Pictures/imgur_wallpaper_album/189\ -\ 5Q4LF58.jpg
+exec_always feh --bg-scale /home/chinchi/Pictures/wallpapers/imgur_wallpaper_album/251\ -\ Hkdz765.jpg
+exec sleep 1 && feh --bg-scale /home/chinchi/Pictures/wallpapers/imgur_wallpaper_album/251\ -\ Hkdz765.jpg
+
+# exec_always feh --bg-scale /home/chinchi/Pictures/wallpapers/imgur_wallpaper_album/55\ -\ IluqWx6.jpg
+# exec_always feh --bg-scale /home/chinchi/Pictures/wallpapers/imgur_wallpaper_album/189\ -\ 5Q4LF58.jpg
 exec redshift
 # exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 # exec --no-startup-id redshift-gtk

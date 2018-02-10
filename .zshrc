@@ -1,11 +1,38 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-  export ZSH=/home/chinchi/.oh-my-zsh
-  export EDITOR="/usr/bin/nvim"
-  source /usr/share/z/z.sh
+######## EXPORTS ########
 
+  # Path to oh-my-zsh installation.
+  export ZSH=/home/chinchi/.oh-my-zsh
+
+  export EDITOR="/usr/bin/nvim"
+  export TERM="xterm-256color"
+  # export TERM=screen-256color
+
+
+  ## Ruby ##
+  # export PATH=/home/chinchi/.gem/ruby/2.4.0/bin:$PATH
+  # export PATH="$HOME/.rvm/scripts/rvm"
+  # source ~/.rvm/scripts/rvm #slow?
+
+  ## Go ##
+  # export GOROOT="$HOME/Dev/go"
+  # export GOBIN="/usr/bin/go"
+  export GOARCH="amd64"
+  export GOOS="linux"
+  # export PATH="$PATH:$GOPATH/bin"
+  export GOPATH="$HOME/Dev/goProjects"
+  # export GOPATH="$HOME/Dev/goworkspace"
+  export PATH="$PATH:$GOPATH/bin"
+
+  ## Node ##
+  # export PATH=$PATH:./node_modules/.bin
+  export PATH="$PATH:$HOME/.node_modules/bin"
+  export npm_config_prefix="~/.node_modules"
+
+
+source /usr/share/z/z.sh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -103,3 +130,10 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
 # prompt pure
 bindkey '^f' autosuggest-accept
+
+ # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+ # deactivate for now because id ont need it and fucks up zsh git complt
+#export PATH="$PATH:$HOME/.rvm/bin"
+
+# source $PATH:$HOME/.rvm/scripts/rvm
+ # source /etc/profile

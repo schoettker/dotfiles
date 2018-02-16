@@ -1,3 +1,17 @@
+# Migrate this setup
+1. Have the destination where the repo is cloned to already ignored in the source repo `echo ".dots" >> .gitignore`
+2. `git clone --bare <git-repo-url> $HOME/.dots`
+3. Add this alias to `.zshrc` 
+`alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'`
+4. Checkout the actual content from the bare repo to $HOME `dots checkout`
+5. Optional: Move already existing (conflicting) files in a backup folder `mkdir -p .dots-backup && \
+dots checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+xargs -I{} mv {} .dots-backup/{}` and rerun `dots checkout`
+6. `config config --local status.showUntrackedFiles no`
+7. TODO: Create simple script that does this
+
+Also see https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+
 # Dotfiles
 
 `yaourt -S xorg-xmodmap neovim google-chrome termite ttf-fantasque-sans-mono ttf-hack visual-studio-code --noconfirm`

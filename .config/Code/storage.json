@@ -57,7 +57,7 @@
         },
         "workbench.action.closeActiveEditor": {
             "id": "workbench.action.closeActiveEditor",
-            "label": "Ctrl+Q",
+            "label": "Ctrl+W",
             "isNative": true
         },
         "undo": {
@@ -412,9 +412,16 @@
         }
     },
     "theme": "vs-dark Equinusocio-vsc-material-theme-themes-Material-Theme-Palenight-json",
-    "pickerWorkingDir": "/home/chinchi/docker_udemy/docker_mastery",
+    "pickerWorkingDir": "/home/chinchi/Dev",
     "openedPathsList": {
         "files": [
+            "/home/chinchi/Dev/goProjects/src/devatax/email/service/src/main.go",
+            "/home/chinchi/Dev/notes/uni/Systemtrafo/Studienleistung_Systemtransformation_L.Schöttker.tex",
+            "/home/chinchi/Dev/notes/uni/Mathe/prealgebra.tex",
+            "/home/chinchi/latex/latex.tex",
+            "/etc/hosts",
+            "/home/chinchi/test/index.html",
+            "/home/chinchi/Dev/notes/uni/WiPo/Kapitel_1.md",
             "/home/chinchi/docker_udemy/[FreeTutorials.Us] docker-mastery/Course_Files/dockerfile-sample-1/Dockerfile",
             "/home/chinchi/.gitignore_global",
             "/home/chinchi/.vim/vimrc",
@@ -422,7 +429,21 @@
             "/home/chinchi/.config/Code/User/snippets/javascript.json"
         ],
         "folders": [
+            "/home/chinchi/Dev/notes/uni/Verwaltung",
+            "/home/chinchi/Dev/notes/uni/Verwaltung",
+            "/home/chinchi/Dev/goProjects/src/devatax/email/service/src",
+            "/home/chinchi/Dev/goProjects",
+            "/home/chinchi/Dev/goProjects/src",
+            "/home/chinchi/Dev/devatax/email",
+            "/home/chinchi/Dev/goMailjet",
+            "/home/chinchi/Dev/goTest",
+            "/home/chinchi/Dev/medifox",
+            "/home/chinchi/Dev/web-starter-kit",
             "/home/chinchi/Dev/nightlife-app",
+            "/home/chinchi/Dev/medifox/src/app",
+            "/home/chinchi/test",
+            "/home/chinchi/Dev/notes/uni/WiPo",
+            "/home/chinchi/Dev/angularjs-realworld-example-app",
             "/home/chinchi/docker_udemy/docker_mastery/Course_Files",
             "/home/chinchi/docker_udemy/docker_mastery/Course_Files/bindmount-sample-1",
             "/home/chinchi/docker_udemy/[FreeTutorials.Us] docker-mastery/Course_Files/dockerfile-assignment-1",
@@ -431,7 +452,6 @@
             "/home/chinchi/Dev/how-to-npm",
             "/home/chinchi/Dev/hackernews",
             "/home/chinchi/Dev/quickstart",
-            "/home/chinchi/Dev/web-starter-kit",
             "/home/chinchi/Dev/nightlife-coordination-app",
             "/home/chinchi/Dev/portfolio_starter",
             "/home/chinchi/Dev/meteor-notemanager",
@@ -465,15 +485,15 @@
         "openedWindows": [],
         "openedFolders": [],
         "lastActiveWindow": {
-            "workspacePath": "/home/chinchi/Dev/nightlife-app",
+            "workspacePath": "/home/chinchi/Dev/notes/uni/Verwaltung",
             "uiState": {
                 "mode": 1,
                 "x": 0,
                 "y": 26,
-                "width": 1920,
-                "height": 1054
+                "width": 1366,
+                "height": 742
             },
-            "backupPath": "/home/chinchi/.config/Code/Backups/4b9024bbbf868bf67a8ca9b1406e45d8"
+            "backupPath": "/home/chinchi/.config/Code/Backups/9fc5dd6329492c30f371d19cead6071e"
         }
     },
     "telemetry.machineId": "1508b337707df342210e0597e6d2e361e41c8aca76dcc5fb47f1f3249ab037bd",

@@ -27,6 +27,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'Raimondi/delimitMate'
 Plug 'Quramy/tsuquyomi', {'do': 'gmake'}
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'fatih/vim-go'
 " Plug 'w0rp/ale'
 " Vim Snippets
 " Plug 'MarcWeber/vim-addon-mw-utils'

@@ -1,7 +1,7 @@
 {
     "window.menuBarVisibility": "hidden",
     "workbench.colorTheme": "Material Theme",
-    "editor.fontFamily": " 'Hack', 'Operator Mono Medium', 'Source Code Pro', 'Office Code Pro', 'Fira Mono' ",
+    "editor.fontFamily": " 'Hack', 'Operator Mono Medium', 'Source Code Pro', 'Office Code Pro', 'Fira Mono' ,'IBMPlex-Mono'",
     "editor.fontSize": 15,
     "editor.acceptSuggestionOnEnter": "on",
     "keyboard.dispatch": "keyCode",
@@ -38,16 +38,28 @@
     "editor.wordWrap": "on",
     "typescript.check.tscVersion": false,
     "materialTheme.cache.workbench.settings": {
-        "themeColours": "Palenight"
+        "themeColours": "Palenight",
+        "accent": "Bright Teal"
     },
     "vim.leader": "<space>",
     "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [ "leader", "q", "q" ],
+            "commands": [ { "command": "workbench.action.quit" } ]
+        },
         {
             "before": [ "leader", "f", "s" ],
             "commands": [ { "command": "workbench.action.files.save" } ]
         },
         {
-            "before": [ "leader", "q" ],
+            "before": [ "leader", "b", "d" ],
+            "commands": [ 
+                { "command": "workbench.action.files.save" },
+                { "command": "workbench.action.closeActiveEditor" }
+            ]
+        },
+        {
+            "before": [ "leader", "w", "d" ],
             "commands": [ 
                 { "command": "workbench.action.files.save" },
                 { "command": "workbench.action.closeActiveEditor" }
@@ -102,11 +114,11 @@
             "commands": [ { "command":  "workbench.action.findInFiles" } ]
         },
         {
-            "before": [ "leader", "n"],
+            "before": [ "leader", "k"],
             "commands": [ { "command":  "workbench.action.nextEditorInGroup" } ]
         },
         {
-            "before": [ "leader", "p"],
+            "before": [ "leader", "j"],
             "commands": [ { "command":  "workbench.action.previousEditorInGroup" } ]
         },
         {
@@ -144,7 +156,61 @@
         {
             "before": [ "leader", "'"],
             "commands": [ { "command":  "workbench.action.terminal.toggleTerminal" } ]
+        },
+        {
+            "before": [ "leader", "b", "b"],
+            "commands": [ { "command":  "workbench.action.showAllEditors" } ]
+        },
+        {
+            "before": [ "leader", "w", "m"],
+            "commands": [ { "command":  "workbench.action.maximizeEditor" } ]
+        },
+        {
+            "before": [ "leader", "g", "s"],
+            "commands": [ { "command":  "workbench.view.scm" } ]
+        },
+        {
+            "before": [ "leader", "p", "p"],
+            "commands": [ { "command":  "workbench.action.quickOpen" } ]
+        },
+        {
+            "before": [ "leader", "p", "f"],
+            "commands": [ { "command":  "workbench.action.quickOpen" } ]
+        },
+        {
+            "before": [ "leader", "f", "f"],
+            "commands": [ { "command":  "workbench.action.findInFiles" } ]
         }
+        
     ],
-    "workbench.quickOpen.closeOnFocusLost": true
+    "workbench.quickOpen.closeOnFocusLost": true,
+    "zenMode.fullScreen": false,
+    "sync.gist": "c1f59d6082cbcf9df25a3d4ab49e8375",
+    "sync.lastUpload": "2018-01-30T21:09:11.101Z",
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#64FFDA",
+        "list.activeSelectionForeground": "#64FFDA",
+        "list.inactiveSelectionForeground": "#64FFDA",
+        "list.highlightForeground": "#64FFDA",
+        "scrollbarSlider.activeBackground": "#64FFDA50",
+        "editorSuggestWidget.highlightForeground": "#64FFDA",
+        "textLink.foreground": "#64FFDA",
+        "progressBar.background": "#64FFDA",
+        "pickerGroup.foreground": "#64FFDA",
+        "tab.activeBorder": "#64FFDA"
+    },
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.showTabs": false,
+    "vim.statusBarColorControl": true,
+    "workbench.activityBar.visible": false
 }

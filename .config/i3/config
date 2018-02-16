@@ -1,19 +1,20 @@
 ######################################################
 # # # Misc # # #
 ######################################################
-set $mod Mod4
+set $mod Mod1
 workspace 1 output HDMI-1
 font pango:Overpass Mono 10
 new_window pixel 0
 floating_modifier $mod
 for_window [class="^.*"] border pixel 3
 smart_borders on
-gaps inner 0
-gaps outer 0
-# gaps inner 30
-# gaps outer 30
+# gaps inner 0
+# gaps outer 0
+gaps inner 20
+gaps outer 20
 for_window [class="Pcmanfm" instance="pcmanfm"] floating enable
 for_window [class="Lxappearance" instance="lxappearance"] floating enable
+for_window [class="mpv"] floating enable
 
 
 ######################################################

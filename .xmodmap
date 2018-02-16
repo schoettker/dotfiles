@@ -1,19 +1,9 @@
-!keycode 66 = Escape
-!clear Lock
-!clear lock
-!keysym Caps_Lock = Escape
-remove Lock = Caps_Lock
-keysym Caps_Lock = Escape
-
-!keycode 135 = Alt_R
-add mod4 = Menu
-
-!keycode 133 = Mode_switch NoSymbol Mode_switch
-keycode 108 = Mode_switch NoSymbol Mode_switch
-remove mod1 = Alt_R
-!add mod4 = Alt_R
-add mod5 = Alt_R ISO_Level3_Shift
+clear Lock
+keycode 133 = Mode_switch NoSymbol Mode_switch
+clear mod5
+add mod5 = ISO_Level3_Shift
 keycode  30 = u U udiaeresis Udiaeresis
 keycode  32 = o O odiaeresis Odiaeresis
 keycode  38 = a A adiaeresis Adiaeresis
 keycode  39 = s S ssharp S
+keysym Caps_Lock = Escape

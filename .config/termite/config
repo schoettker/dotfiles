@@ -1,5 +1,6 @@
 [options]
-font = Fantasque Sans Mono 14
+font = Hack 12
+# font = Fantasque Sans Mono 14
 # font = Operator Mono Semi-Light 14
 allow_bold = false
 mouse_autohide = true
@@ -9,7 +10,8 @@ scrollback_lines = 10000
 foreground      = #eceff1
 foreground_bold = #eceff1
 background      = #282c34
-cursor          = #46d9ff
+# cursor          = #46d9ff
+cursor          = #e91e63
 # ==========
 # Arc Dark 
 # ==========

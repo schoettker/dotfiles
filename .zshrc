@@ -7,7 +7,7 @@
   export ZSH=/home/chinchi/.oh-my-zsh
 
   export EDITOR="/usr/bin/nvim"
-  export TERM="xterm-256color"
+  # export TERM="xterm-256color"
   # export TERM=screen-256color
 
 
@@ -84,7 +84,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions vi-mode)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions vi-mode emacs)
 
 source $ZSH/oh-my-zsh.sh
 

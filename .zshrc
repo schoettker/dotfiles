@@ -4,7 +4,7 @@
 ######## EXPORTS ########
 
   # Path to oh-my-zsh installation.
-  export ZSH=/home/chinchi/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
   export EDITOR="/usr/bin/nvim"
   # export TERM="xterm-256color"

@@ -7,7 +7,9 @@
 5. Optional: Move already existing (conflicting) files in a backup folder `mkdir -p .dots-backup && \
 dots checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 xargs -I{} mv {} .dots-backup/{}` and rerun `dots checkout`
-6. `config config --local status.showUntrackedFiles no`
+6. `dots --local status.showUntrackedFiles no`
+
+
 7. TODO: Create simple script that does this
 
 Also see https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/

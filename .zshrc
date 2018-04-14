@@ -39,8 +39,8 @@ source /usr/share/z/z.sh
 # ZSH_THEME="amuse"
 # ZSH_THEME="jnrowe"
 # ZSH_THEME="pygmalion"
-# ZSH_THEME="norm"
- ZSH_THEME="smt"
+ZSH_THEME="norm"
+# ZSH_THEME="smt"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -136,4 +136,4 @@ bindkey '^f' autosuggest-accept
 #export PATH="$PATH:$HOME/.rvm/bin"
 
 # source $PATH:$HOME/.rvm/scripts/rvm
- # source /etc/profile
+

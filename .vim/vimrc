@@ -70,7 +70,7 @@ endif
 " set hlsearch
 set nohlsearch
 
-source ~/.vim/mappings.vim
+" source ~/.vim/mappings.vim
 
 let mapleader = "\<Space>" 
 nnoremap <Leader>fs :w<CR>
@@ -148,8 +148,9 @@ function! LightLineFilename()
 endfunction
 " Gruvy \ 'colorscheme': 'seoul256',
 " Archy \ 'colorscheme': 'dracula',
+" dracula was removed https://github.com/itchyny/lightline.vim/commit/e54d2ae512c9c081bfff9303cb22ffa94ed48ba3 
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'one',
       \ 'component_function': {
       \   'filename': 'LightLineFilename'
       \ },

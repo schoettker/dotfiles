@@ -1,0 +1,2 @@
+trayer --edge top --align right --widthtype request --height 18 --tint 0x292b2e --transparent true --expand true --SetDockType true --alpha 0
+nm-applet

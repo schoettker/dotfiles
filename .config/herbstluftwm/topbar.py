@@ -1,295 +1,174 @@
-#!/usr/bin/python
+from collections import namedtuple
+from datetime import datetime
+from itertools import groupby
+from time import sleep
+import re
+import socket
+import subprocess
+import psutil
 
-import os, sys, select, datetime, subprocess, atexit
+FONT_TEXT = 'DejaVu Sans'
+GEOMETRY = 'x25+0+0'
+BATTERY_DIR = '/sys/class/power_supply/BAT0'
+DELAY = 1
 
-color = {
-    "foreground": "#ffffff",
-    "background": "#282f3a",
-    "lightbackground": "#414a59",
-    "primary": "#5294e2",
-    "good": "#91cc57",
-    "bad": "#cc575d",
-    "muted": "#999999",
-}
+def format_fg(color):
+    return '%{F' + color + '}'
 
-def fg(color, text):
-    return '%{F' + color + '}' + text + '%{F-}'
+def format_bg(color):
+    return '%{B' + color + '}'
 
-def bg(color, text):
-    return '%{B' + color + '}' + text + '%{B-}'
+FG_BODY_NORMAL = format_fg('#ede0ce')
+FG_HEADER_NORMAL = format_fg('#f8f8f0')
+FG_LOW_BATTERY = format_fg('#ffffff')
+BG_BODY_NORMAL = format_bg('#2b2a2c')
+BG_HEADER_NORMAL = format_bg('#2b2a2c')
+BG_LOW_BATTERY = format_bg('#ee0000')
+BG_BAR = '#2b2a2c'
+CENTER = '%{c}'
+LEFT = '%{l}'
+RIGHT = '%{r}'
+SEPARATOR = ' '
 
-def file_contents(f):
+def get_stdout(command):
+    pipe = subprocess.Popen(command.split(' '),
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.DEVNULL)
+    return str(pipe.stdout.read())
+
+def status_datetime():
+    return datetime.now().strftime('%d/%m %H:%M')
+
+def status_volume():
+    volume_raw = get_stdout('amixer -c 1 sget Master')
+    # -2 because there is a trailing newline
+    last_line = volume_raw.split('\\n')[-2]
+    # Get the 5th word
+    volume = re.split('\W+', last_line)[4]
+    return volume
+
+def status_battery_level():
+    with open(BATTERY_DIR + '/capacity') as f:
+        # The file has 1 line
+        return int(f.readlines()[0])
+
+def status_battery_status():
+    with open(BATTERY_DIR + '/status') as f:
+        # Get the first character
+        return f.readlines()[0][0]
+
+def status_connected():
     try:
-        ff = open(f, 'r')
-        c = ff.read().strip()
-        ff.close()
-        return c
-    except:
-        return None
-
-def output_of(cmd):
-    try:
-        return subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
-    except:
-        return None
-
-class Widget(object):
-    @staticmethod
-    def available():
-        """Determines if widget is available/makes sense on this system."""
+        socket.create_connection(('www.google.com', 80))
         return True
-    def __init__(self, pipe, hooks):
-        """Initialize widget. The widget may spawn a subprocess and feed its stdout
-        into pipe. The main loop runs through all lines received on all widget pipes
-        and calls hooks based on the first word in a line. If
+    except OSError:
+        return False
 
-        hooks["my_trigger"] = self
+# def status_network():
+#     interfaces = get_stdout('iwconfig')
+#     return interfaces.split('\\n')[0].split('ESSID:')[1].strip()[1:-1]
 
-        is set, this widget's update function will be called if the main loop sees
-        a line starting with 'my_trigger'."""
-        pass
-    def update(self, line):
-        """Update widget's internal state based on data received via the main loop."""
-        pass
-    def render(self):
-        """Render the widget."""
-        return ''
+def status_cpu():
+    return str(psutil.cpu_percent(interval=None))
 
-class Text(Widget):
-    def __init__(self, text):
-        super(Widget, self)
-        self.text = text
-    def render(self):
-        return self.text
+def status_ram():
+    return str(psutil.virtual_memory().percent)
 
-class HLWM(Widget):
-    tagicons = ['\ue00e', '\ue1a8', '\ue1ce', '\ue1a0']
+def status_disk():
+    return str(psutil.disk_usage('/').percent)
 
-    def __init__(self, pipe, hooks):
-        self.client = subprocess.Popen(['herbstclient', '--idle', 'tag_changed'], stdout=pipe)
-        atexit.register(self.client.kill)
-        self.tags = []
-        hooks['tag_changed'] = self
-    def update(self, line):
-        self.tags =  [t for t in output_of(['herbstclient', 'tag_status']).split() if t[1] != "!"]
-    def render(self):
-        out = '%{T2}'
-        empty = ' \ue0e6 '
-        for i, t in enumerate(self.tags):
-            full = ' ' + self.tagicons[i] + ' ' if len(self.tagicons) > i else ' \ue056 '
-            if t[0] == '#':
-                out += bg(color['lightbackground'], fg('-', '%{+u}' + full + '%{-u}'))
-            elif t[0] == '+':
-                out += fg(color['primary'], full)
-            elif t[0] == ':':
-                out += fg(color['muted'], full)
-            elif t[0] == '.':
-                out += fg(color['muted'], empty)
-            elif t[0] == '!':
-                out += fg(color['bad'], full)
-        out += '%{T1}'
-        return out
+def status_workspaces():
+    num_workspaces = int(get_stdout("xdotool get_num_desktops")[2:-3])
+    cur_workspace = int(get_stdout("xdotool get_desktop")[2:-3])
 
-class Filesystems(Widget):
-    dfcmd = ['df', '-h', '-x', 'tmpfs', '-x', 'devtmpfs', '--output=target,avail']
-    icon = fg(color['good'], ' %{T2}\ue1e1%{T1} ')
-    def render(self):
-        df = output_of(self.dfcmd).splitlines()[1:]
-        fs = ((f[0], f[1]) for f in (f.strip().split() for f in df) if not f[0].startswith('/boot'))
-        return self.icon + fg(color['muted'], ' | ').join('%s %s' % (f[0], fg(color['muted'], f[1])) for f in fs)
+    workspaces_str = ''
+    for i in range(num_workspaces):
+        workspaces_str += ('(*)' if i == cur_workspace else '()')
+        if i < num_workspaces-1:
+            workspaces_str += ' '
+            
+    return workspaces_str
 
-class Battery(Widget):
-    icons = [chr(c) for c in ([int(0xe242)] + list(range(int(0xe24c), int(0xe255))))]
-    icon_charging = '\ue239'
-    @staticmethod
-    def available():
-        return file_contents('/sys/class/power_supply/BAT0/present') == '1'
-    def render(self):
-        try:
-            charge = int(file_contents('/sys/class/power_supply/BAT0/capacity'))
-        except:
-            charge = 0
-        c = color['bad'] if charge < 30 else color['good']
-        if file_contents('/sys/class/power_supply/BAT0/status') != 'Discharging':
-            icon = ' %%{T2}%s%%{T1} ' % self.icon_charging
-        else:
-            icon = ' %%{T2}%s%%{T1} ' % self.icons[round(charge / 100 * (len(self.icons) - 1))]
-        return fg(c, icon) + str(charge)
+Section = namedtuple('Section', ('alignment', 'fg_header', 'bg_header', 'header',
+                                 'fg_body', 'bg_body', 'body'))
+def sections_to_string(sections, separator):
+    display_string = ''
 
-class PulseAudio(Widget):
-    icon_loud = ' \ue05d '
-    icon_mute = ' \ue04f '
-    @staticmethod
-    def available():
-        try:
-            subprocess.run(['pactl', 'info'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            return True
-        except:
-            return False
-    def __init__(self, pipe, hooks):
-        client = subprocess.Popen(['pactl', 'subscribe'], stdout=pipe)
-        atexit.register(client.kill)
-        self.volume = 0
-        self.mute = False
-        hooks["Event 'change' on sink"] = self
-    def update(self, line):
-        painfo = output_of(['pactl', 'info']).splitlines()
-        look_for = None
-        for l in painfo:
-            if l.startswith('Default Sink:'):
-                look_for = l.split(':')[1].strip()
-                break
-        in_sink = False
-        look_for = 'Name: ' + look_for
-        sink_list = output_of(['pactl', 'list', 'sinks']).splitlines()
-        for l in sink_list:
-            if not in_sink:
-                if look_for in l:
-                    in_sink = True
-            else:
-                if 'Mute:' in l:
-                    if l.split(':')[1].strip() == 'yes':
-                        self.mute = True
-                    else:
-                        self.mute = False
-                elif 'Volume:' in l:
-                    self.volume = int(l.split('/', 2)[1].strip()[:-1])
-                    return
-    def render(self):
-        if self.mute:
-            return fg(color['bad'], self.icon_mute) + '--'
-        else:
-            return fg(color['good'], self.icon_loud) + str(self.volume)
+    # Separate into left, center and right groups
+    groups = groupby(sections, lambda s: s.alignment)
+    for k, sections in groups:
+        group_string = format_bg(BG_BAR)
+        sections = [i for i in sections]
 
-class Clock(Widget):
-    def render(self):
-        return '  ' + bg(color['lightbackground'], datetime.datetime.now().strftime('  %a %b %d  %H:%M  '))
+        for idx, s in enumerate(sections):
+            group_string += (s.alignment if idx == 0 else '') + \
+                            s.fg_header + s.bg_header + \
+                            (' ' if s.header else '') + \
+                            s.header + ' ' + \
+                            s.fg_body + s.bg_body + s.body
+            if idx < len(sections) - 1:
+                group_string += separator
+            display_string += group_string
 
-class Wifi(Widget):
-    icon = ' \ue048 '
-    @staticmethod
-    def available():
-        try:
-            return len(output_of(['iw', 'dev'])) > 0
-        except:
-            return False
-    def render(self):
-        strength = 0.0
-        iw = output_of(['iwgetid']).split()
-        profile = ''
-        if len(iw) == 0:
-            profile = fg(color['muted'], 'disconnected')
-        elif len(iw) < 2 or 'ESSID' not in iw[1]:
-            profile = fg(color['muted'], 'connecting')
-        else:
-            profile = iw[1][7:-1]
-            if profile == '':
-                profile = fg(color['muted'], 'disconnected')
-            else:
-                for line in file_contents('/proc/net/wireless').splitlines()[2:]:
-                    cols = line.split()
-                    if cols[0][:-1] == iw[0]:
-                        strength = float(cols[2])
-                        break
-        c = color['good'] if strength > 40 else color['bad']
-        profile = fg(c, self.icon) + profile
-        if strength > 0:
-            profile += ' ' + fg(color['muted'], str(int(strength)))
-        return profile
+    return display_string
 
-class MPD(Widget):
-    icon_paused = ' \ue059 '
-    icon_playing = ' \ue05c '
-    audio_files = ['mp3', 'ogg', 'flac', 'mp4', 'm4a']
-    @staticmethod
-    def available():
-        try:
-            subprocess.run(['mpc'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            return True
-        except:
-            return False
-    def __init__(self, pipe, hooks):
-        client = subprocess.Popen(['mpc', 'idleloop', 'player'], stdout=pipe)
-        atexit.register(client.kill)
-        self.song = ''
-        self.status = 'stopped'
-        hooks['player'] = self
-    def update(self, line):
-        status = output_of('mpc').splitlines()
-        if len(status) < 3:
-            self.song = ''
-            self.status = 'stopped'
-        else:
-            self.song = status[0]
-            if '.' in self.song[-5:] and self.song.rsplit('.', 1)[1].lower() in self.audio_files and '/' in self.song:
-                self.song = self.song.rsplit('/', 1)[1]
-            self.status = status[1].split(None, 1)[0][1:-1]
-    def render(self):
-        if self.status == 'playing':
-            return self.icon_playing + fg(color['muted'], self.song)
-        elif self.status == 'paused':
-            return self.icon_paused + fg(color['muted'], self.song)
-        return ''
+def write_bar(bar, display_string):
+    bar.stdin.write((display_string + '\n').encode('utf-8'))
+    try:
+        bar.stdin.flush()
+    except BrokenPipeError:
+        # Process killed
+        exit()
 
-class Mail(Widget):
-    icon = '\ue1a8'
-    @staticmethod
-    def available():
-        return os.path.isdir(os.path.expanduser('~/.mutt')) and os.path.isdir(os.path.expanduser('~/.password-store'))
-    def __init__(self, pipe, hooks):
-        from check_mail import MailChecker
-        self.checker = MailChecker()
-    def render(self):
-        new = []
-        c = color['good']
-        for acct, mails in self.checker.current_status().items():
-            if mails is None:
-                c = color['bad']
-                new.append(acct + ' ' + fg(color['bad'], 'error'))
-            elif mails > 0:
-                new.append(acct + ' ' + fg(color['muted'], str(mails)))
-        if len(new) > 0:
-            return fg(c, self.icon) + ' ' + fg(color['muted'], ' | ').join(new)
-        else:
-            return ''
+def run():
+    status = subprocess.Popen(['lemonbar', '-p', '-g', GEOMETRY,
+                               '-o', '1', '-f', FONT_TEXT,
+                               '-B', BG_BAR],
+                               stdin=subprocess.PIPE,
+                               stdout=subprocess.PIPE)
+    while True:
+        datetime = status_datetime()
+        volume = status_volume()
+        battery_level = status_battery_level()
+        battery_status = status_battery_status()
+        connected = status_connected()
+        # if connected:
+        #     network = status_network()
+        workspaces = status_workspaces()
+        cpu = status_cpu()
+        ram = status_ram()
+        disk = status_disk()
 
-widgets = ['%{l}', HLWM, MPD, '%{c}', Mail, '%{r}', Filesystems, Wifi, Battery, PulseAudio, Clock]
+        low_battery = battery_level < 15 and battery_status == 'D'
+        fg_header = (FG_LOW_BATTERY if low_battery else FG_HEADER_NORMAL)
+        bg_header = (BG_LOW_BATTERY if low_battery else BG_HEADER_NORMAL)
+        fg_body = (FG_LOW_BATTERY if low_battery else FG_BODY_NORMAL)
+        bg_body = (BG_LOW_BATTERY if low_battery else BG_BODY_NORMAL)
+
+        sections_status = [
+            Section(LEFT, fg_header, bg_header,
+                    '', fg_body, bg_body, str(datetime)),
+            Section(LEFT, fg_header, bg_header,
+                    'VOL', fg_body, bg_body, str(volume)),
+            Section(LEFT, fg_header, bg_header,
+                    'BAT', fg_body, bg_body, '{} {}'.format(battery_level,
+                                                            battery_status)),
+            Section(LEFT, fg_header, bg_header,
+                    'WIFI', fg_body, bg_body, ('|' if connected else '-')),
+            Section(CENTER, fg_header, bg_header,
+                    workspaces, fg_body, bg_body, ''),
+            Section(RIGHT, fg_header, bg_header,
+                    'CPU', fg_body, bg_body, cpu),
+            Section(RIGHT, fg_header, bg_header,
+                    'RAM', fg_body, bg_body, ram),
+            Section(RIGHT, fg_header, bg_header,
+                    'DISK', fg_body, bg_body, disk)
+        ]
+        display_string = sections_to_string(sections_status, SEPARATOR)
+        write_bar(status, display_string)
+
+        sleep(DELAY)
 
 if __name__ == '__main__':
-    sread, swrite = os.pipe()
-    hooks = {}
-
-    ws = []
-    for wc in widgets:
-        if type(wc) is str:
-            w = Text(wc)
-            ws.append(w)
-        elif wc.available():
-            w = wc(swrite, hooks)
-            w.update(None)
-            ws.append(w)
-
-    print(''.join(w.render() for w in ws))
-    sys.stdout.flush()
-
-    while True:
-        ready, _, _ = select.select([sread], [], [], 5)
-        # poll / update widgets (rerender only on updates that match hooks,
-        # or on regular timeouts)
-        updated = False
-        if len(ready) > 0:
-            for p in ready:
-                lines = os.read(p, 4096).decode('utf-8').splitlines()
-                for line in lines:
-                    for first, hook in hooks.items():
-                        if line.startswith(first):
-                            updated = True
-                            hook.update(line)
-        else:
-            updated = True
-        # render
-        if updated:
-            print(''.join(w.render() for w in ws))
-            sys.stdout.flush()
-
+    run()
 

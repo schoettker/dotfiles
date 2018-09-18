@@ -7,6 +7,8 @@
   export ZSH=$HOME/.oh-my-zsh
 
   export EDITOR="/usr/bin/nvim"
+  export DOTNET_ROOT=$PATH:$HOME/dev/dotnet 
+  export PATH=$PATH:$HOME/dev/dotnet
   # export TERM="xterm-256color"
   # export TERM=screen-256color
 
@@ -119,8 +121,10 @@ source $ZSH/oh-my-zsh.sh
 # export PATH=/usr/local/bin:$PATH
 # export PATH=/home/chinchi/.gem/ruby/2.4.0
 # export CC=/usr/bin/gcc
-alias vim=nvim
-alias v=nvim
+# alias vim=nvim
+# alias v=nvim
+alias vim=emacs
+alias nvim=emacsclient
 alias p=pcmanfm .
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 # autoload -U promptinit; promptinit

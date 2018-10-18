@@ -35,7 +35,8 @@ hc keybind $Mod+Shift+Return spawn termite --directory $(xcwd)
 hc keybind $Mod-d spawn dmenu_run_hlwm
 
 hc keybind $Mod-F1 spawn google-chrome-stable
-hc keybind $Mod-F2 spawn termite -e ranger
+hc keybind $Mod-F2 spawn thunar
+# hc keybind $Mod-F2 spawn termite -e ranger
 
 # basic movement
 # focusing clients

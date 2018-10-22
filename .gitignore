@@ -1,6 +1,0 @@
-secrets.js
-.tmp/
-coverage/
-dist/
-node_modules/
-.env

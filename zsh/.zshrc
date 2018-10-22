@@ -1,48 +1,82 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-######## EXPORTS ########
+####### EXPORTS ########
+# comment in as needed #
 
-  # Path to oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+# Path to oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-  export EDITOR="/usr/bin/nvim"
-  export DOTNET_ROOT=$PATH:$HOME/dev/dotnet 
-  export PATH=$PATH:$HOME/dev/dotnet
-  # export TERM="xterm-256color"
-  # export TERM=screen-256color
+export GIT_EDITOR='nvim'
 
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
 
-  ## Ruby ##
-  # export PATH=/home/chinchi/.gem/ruby/2.4.0/bin:$PATH
-  # export PATH="$HOME/.rvm/scripts/rvm"
-  # source ~/.rvm/scripts/rvm #slow?
+## C# / Dotnet ##
+#export DOTNET_ROOT=$PATH:$HOME/dev/dotnet 
+#export PATH=$PATH:$HOME/dev/dotnet
 
-  ## Go ##
-  # export GOROOT="$HOME/Dev/go"
-  # export GOBIN="/usr/bin/go"
-  export GOARCH="amd64"
-  export GOOS="linux"
-  # export PATH="$PATH:$GOPATH/bin"
-  export GOPATH="$HOME/Dev/goProjects"
-  # export GOPATH="$HOME/Dev/goworkspace"
-  export PATH="$PATH:$GOPATH/bin"
+## Ruby ##
+# export PATH=/#HOME/.gem/ruby/2.4.0/bin:$PATH
+# export PATH="$HOME/.rvm/scripts/rvm"
+# source ~/.rvm/scripts/rvm #slow?
 
-  ## Node ##
-  # export PATH=$PATH:./node_modules/.bin
-  export PATH="$PATH:$HOME/.node_modules/bin"
-  export npm_config_prefix="~/.node_modules"
+## Go ##
+# export GOROOT="$HOME/Dev/go"
+# export GOBIN="/usr/bin/go"
+# export GOARCH="amd64"
+# export GOOS="linux"
+# export PATH="$PATH:$GOPATH/bin"
+# export GOPATH="$HOME/Dev/goProjects"
+# export GOPATH="$HOME/Dev/goworkspace"
+# export PATH="$PATH:$GOPATH/bin"
 
+## Node ##
+# export PATH=$PATH:./node_modules/.bin
+# export PATH="$PATH:$HOME/.node_modules/bin"
+# export npm_config_prefix="~/.node_modules"
 
-source /usr/share/z/z.sh
+## Misc ##
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Fuzzy path jumper 'z' by rupa
+source ~/.z.sh
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="norm"
 # ZSH_THEME="amuse"
 # ZSH_THEME="jnrowe"
 # ZSH_THEME="pygmalion"
-ZSH_THEME="norm"
 # ZSH_THEME="smt"
+#
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-syntax-highlighting autojump zsh-autosuggestions vi-mode emacs)
+
+## Aliases ##
+#alias vim=emacs
+#alias nvim=emacsclient
+alias vim=nvim
+alias p=pcmanfm .
+bindkey '^f' autosuggest-accept
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+   mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,9 +93,6 @@ ZSH_THEME="norm"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -82,13 +113,6 @@ DISABLE_AUTO_TITLE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions vi-mode emacs)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -123,21 +147,15 @@ source $ZSH/oh-my-zsh.sh
 # export CC=/usr/bin/gcc
 # alias vim=nvim
 # alias v=nvim
-alias vim=emacs
-alias nvim=emacsclient
-alias p=pcmanfm .
-alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 # autoload -U promptinit; promptinit
 
 # optionally define some options
 # PURE_CMD_MAX_EXEC_TIME=10
 
 # prompt pure
-bindkey '^f' autosuggest-accept
 
  # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
  # deactivate for now because id ont need it and fucks up zsh git complt
 #export PATH="$PATH:$HOME/.rvm/bin"
 
 # source $PATH:$HOME/.rvm/scripts/rvm
-

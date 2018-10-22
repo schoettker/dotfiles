@@ -1,5 +1,7 @@
-# export EMACS="*term*"
+### Comment stuff in as the need arises ###
+
 export EDITOR="/usr/bin/nvim"
+# export EMACS="*term*"
 # export TERM="xterm-256color"
 # export TERM=screen-256color
 
@@ -12,16 +14,16 @@ export EDITOR="/usr/bin/nvim"
 ## Go ##
 # export GOROOT="$HOME/Dev/go"
 # export GOBIN="/usr/bin/go"
-export GOARCH="amd64"
-export GOOS="linux"
+# export GOARCH="amd64"
+# export GOOS="linux"
 # export PATH="$PATH:$GOPATH/bin"
-export GOPATH="$HOME/Dev/goProjects"
+# export GOPATH="$HOME/Dev/goProjects"
 # export GOPATH="$HOME/Dev/goworkspace"
-export PATH="$PATH:$GOPATH/bin"
+# export PATH="$PATH:$GOPATH/bin"
 
 ## Node ##
 # export PATH=$PATH:./node_modules/.bin
-export PATH="$PATH:$HOME/.node_modules/bin"
-export npm_config_prefix="~/.node_modules"
+# export PATH="$PATH:$HOME/.node_modules/bin"
+# export npm_config_prefix="~/.node_modules"
 
 

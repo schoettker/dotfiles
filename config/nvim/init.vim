@@ -1,4 +1,4 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -19,8 +19,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'SirVer/ultisnips'
+" Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'scrooloose/nerdtree'
@@ -32,7 +32,7 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'Raimondi/delimitMate'
-Plug 'Quramy/tsuquyomi', {'do': 'gmake'}
+" Plug 'Quramy/tsuquyomi', {'do': 'gmake'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'fatih/vim-go'
 " Plug 'w0rp/ale'
@@ -167,10 +167,10 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
-let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-let s:palette.inactive.middle = s:palette.normal.middle
-let s:palette.tabline.middle = s:palette.normal.middle
+" let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+" let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+" let s:palette.inactive.middle = s:palette.normal.middle
+" let s:palette.tabline.middle = s:palette.normal.middle
 
 " Nerdtree
 " ============
@@ -203,7 +203,7 @@ autocmd FileType nerdtree setlocal relativenumber
 " Theme
 " ============
 " ARCHY
-colorscheme quantum
+" colorscheme quantum
 let g:quantum_italics=1
 " let g:quantum_black = 1
 " Gruvy

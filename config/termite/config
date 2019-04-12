@@ -1,6 +1,13 @@
 [options]
-# font = Hack 12
-font = DejaVu Sans Mono 12
+#best after dejavu
+# font = Hack 12 
+
+#best after bront
+font = DejaVu Sans Mono 12 
+
+# font = Bront 14
+# font = Inconsolata 12
+
 # font = Fantasque Sans Mono 14
 # font = Operator Mono Semi-Light 14
 allow_bold = false

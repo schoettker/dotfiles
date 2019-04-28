@@ -1,9 +1,14 @@
 clear Lock
-keycode 133 = Mode_switch NoSymbol Mode_switch
-clear mod5
-add mod5 = ISO_Level3_Shift
+keysym Caps_Lock = Escape
+keysym Insert = Escape
+
+! 'win button for ü ä ..':
+! keycode 133 = Mode_switch NoSymbol Mode_switch
+! clear mod5
+! add mod5 = ISO_Level3_Shift  
+! 'Scroll Lock Button for Umlaute:
+keycode  78 = Mode_switch Multi_key
 keycode  30 = u U udiaeresis Udiaeresis
 keycode  32 = o O odiaeresis Odiaeresis
 keycode  38 = a A adiaeresis Adiaeresis
 keycode  39 = s S ssharp S
-keysym Caps_Lock = Escape

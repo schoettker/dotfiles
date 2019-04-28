@@ -13,15 +13,14 @@ export GIT_EDITOR='nvim'
 export ARCHFLAGS="-arch x86_64"
 
 ## C# / Dotnet ##
-#export DOTNET_ROOT=$PATH:$HOME/dev/dotnet 
-#export PATH=$PATH:$HOME/dev/dotnet
-
-## Ruby ##
-# export PATH=/#HOME/.gem/ruby/2.4.0/bin:$PATH
-# export PATH="$HOME/.rvm/scripts/rvm"
-# source ~/.rvm/scripts/rvm #slow?
+export DOTNET_ROOT=$HOME/arch/pkgs/dotnet 
+export PATH=$PATH:$HOME/arch/pkgs/dotnet
 
 ## Go ##
+export GOPATH="$HOME/dev/go"
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+
 # export GOROOT="$HOME/Dev/go"
 # export GOBIN="/usr/bin/go"
 # export GOARCH="amd64"
@@ -32,12 +31,19 @@ export ARCHFLAGS="-arch x86_64"
 # export PATH="$PATH:$GOPATH/bin"
 
 ## Node ##
-# export PATH=$PATH:./node_modules/.bin
-# export PATH="$PATH:$HOME/.node_modules/bin"
-# export npm_config_prefix="~/.node_modules"
+export PATH=$PATH:./node_modules/.bin
+export PATH="$PATH:$HOME/.node_modules/bin"
+# source /usr/share/nvm/init-nvm.sh
+
+## Ruby ##
+export PATH=$PATH:$HOME/.rbenv/bin
+eval "$(rbenv init -)"
+
+##export npm_config_prefix="~/.node_modules" ->  deprecated ?
 
 ## Misc ##
 export XDG_CONFIG_HOME="$HOME/.config"
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Fuzzy path jumper 'z' by rupa
 source ~/.z.sh

@@ -18,7 +18,7 @@ Plug '1995eaton/vim-better-javascript-completion'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'roxma/nvim-completion-manager'
+" Plug 'roxma/nvim-completion-manager'
 " Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 " Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -271,6 +271,7 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=html
 let g:jsx_ext_required = 0
 map  <Leader>fc <Plug>(easymotion-f)
 map  <Leader>Fc <Plug>(easymotion-F)
+" nnoremap  <Leader><Leader> <Plug>(easymotion-f)
 
 nnoremap <Leader>1 :1wincmd w<CR>
 nnoremap <Leader>2 :2wincmd w<CR>
@@ -284,6 +285,8 @@ nnoremap <Leader>9 :9wincmd w<CR>
 
 nnoremap <silent> <s-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <s-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+
+set clipboard=unnamedplus
 
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=html.javascript.css
 

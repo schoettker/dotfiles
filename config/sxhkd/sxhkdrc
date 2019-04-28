@@ -14,6 +14,8 @@ alt + d
 
 # browser
 alt + F1
+  chromium
+alt + F2
   google-chrome-stable
 
 # editor
@@ -87,8 +89,26 @@ alt + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# alt + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Go to desktop
+alt + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+# Send to desktop
+alt + ctrl + {1-9,0}
+	bspc node -d '^{1-9,10}'
+
+
+# Send to desktop and follow
+alt + shift + {1-9,0}
+         id=$(bspc query -N -n); bspc node -d '^{1-9}'; bspc node -f ${id}
+
+	# bspc node -d  next -f '^{1-9,10}'
+        # super + shift + {1-9}
+    # id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
+
 
 #
 # preselect

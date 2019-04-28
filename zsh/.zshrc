@@ -65,8 +65,10 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting autojump zsh-autosuggestions vi-mode emacs)
+plugins=(git autojump vi-mode emacs zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(git autojump vi-mode emacs zsh-syntax-highlighting)
 
+bindkey '^f' autosuggest-accept
 ## Aliases ##
 #alias vim=emacs
 #alias nvim=emacsclient
@@ -179,3 +181,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #export PATH="$PATH:$HOME/.rvm/bin"
 
 # source $PATH:$HOME/.rvm/scripts/rvm
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

@@ -71,8 +71,22 @@ plugins=(git zsh-syntax-highlighting autojump zsh-autosuggestions vi-mode emacs)
 #alias vim=emacs
 #alias nvim=emacsclient
 alias vim=nvim
+alias battery='cat /sys/class/power_supply/BAT0/capacity'
+alias bat='cat /sys/class/power_supply/BAT0/capacity'
+alias v=nvim
 alias p=pcmanfm .
-bindkey '^f' autosuggest-accept
+alias htop=glances
+alias top=glances
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then

@@ -48,7 +48,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "Wuncon siji:pixelsize=10;1"
 
-modules-left = ewmh
+modules-left = bspwm
 modules-center = xwindow 
 modules-right = filesystem volume memory cpu battery temperature date 
 
@@ -101,24 +101,24 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-[module/bspwm]
-type = internal/bspwm
+; [module/bspwm]
+; type = internal/bspwm
 
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+; label-focused = %index%
+; label-focused-background = ${colors.background-alt}
+; label-focused-underline= ${colors.primary}
+; label-focused-padding = 2
 
-label-occupied = %index%
-label-occupied-padding = 2
+; label-occupied = %index%
+; label-occupied-padding = 2
 
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+; label-urgent = %index%!
+; label-urgent-background = ${colors.alert}
+; label-urgent-padding = 2
 
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+; label-empty = %index%
+; label-empty-foreground = ${colors.foreground-alt}
+; label-empty-padding = 2
 
 [module/i3]
 type = internal/i3
@@ -203,7 +203,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %percentage_used%%
+label = %gb_used%/%gb_total%
 
 [module/wlan]
 type = internal/network
@@ -260,7 +260,7 @@ format-underline = #0a6cf5
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
@@ -324,8 +324,8 @@ format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
@@ -364,6 +364,7 @@ menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
+pseudo-transparency = true
 ;compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
@@ -373,81 +374,48 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-[module/ewmh]
-type = internal/xworkspaces
+[module/bspwm]
+type = internal/bspwm
 
 ; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
+; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
+; Default: true
+pin-workspaces = true
+
+;ws-icon-default = O
+; Output mode flags after focused state label
 ; Default: false
-pin-workspaces = false
+inline-mode = false
 
-; Create click handler used to focus desktop
+; Create click handler used to focus workspace
 ; Default: true
-enable-click = false
+enable-click = true
 
-; Create scroll handlers used to cycle desktops
+; Create scroll handlers used to cycle workspaces
 ; Default: true
-enable-scroll = false
+enable-scroll = true
 
-; icon-[0-9]+ = <desktop-name>;<icon>
-; NOTE: The desktop name needs to match the name configured by the WM
-; You can get a list of the defined desktops using:
-; $ xprop -root _NET_DESKTOP_NAMES
-; icon-0 = code;♚
-; icon-1 = office;♛
-; icon-2 = graphics;♜
-; icon-3 = mail;♝
-; icon-4 = web;♞
-icon-default = O
+; Set the scroll cycle direction 
+reverse-scroll = true
 
-; Available tags:
-;   <label-monitor>
-;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
-; Default: <label-state>
-format = <label-state>
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = false
+
+;label-focused = %icon%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
 
 ; Available tokens:
-;   %name%
-; Default: %name%
-label-monitor = %name%
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-active = %icon% %name%
-label-active-foreground = #ffffff
-label-active-background = #3f3f3f
-label-active-underline = #fba922
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-occupied = %name% %index%
+;label-occupied = %icon%
 label-occupied-underline = #555555
 
 ; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-urgent = %icon%
+; label-urgent = %icon%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-underline = #9b0a20
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-empty = %icon%
-label-empty-foreground = #55
-
-; vim:ft=dosini

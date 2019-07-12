@@ -236,7 +236,20 @@ theme.volume.bar.paddings = 0
 theme.volume.bar.margins = 5
 local volumewidget = wibox.container.background(theme.volume.bar, theme.bg_focus, gears.shape.rectangle)
 volumewidget = wibox.container.margin(volumewidget, 0, 0, 5, 5)
-
+theme.volume.bar:buttons(awful.util.table.join(
+    awful.button({}, 1, function() -- left click
+        os.execute(string.format("%s set %s toggle", theme.volume.cmd, theme.volume.togglechannel or theme.volume.channel))
+        theme.volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("%s set %s 1%%+", theme.volume.cmd, theme.volume.channel))
+        theme.volume.update()
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("%s set %s 1%%-", theme.volume.cmd, theme.volume.channel))
+        theme.volume.update()
+    end)
+))
 -- CPU
 local cpu_icon = wibox.widget.imagebox(theme.cpu)
 local cpu = lain.widget.cpu({

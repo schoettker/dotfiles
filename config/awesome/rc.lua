@@ -679,6 +679,9 @@ awful.rules.rules = {
     { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = true } },
 
+    { rule_any = { class = { "google-chrome", "Google-chrome" } },
+      properties = { titlebars_enabled = false } },
+
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
       properties = { screen = 1, tag = awful.util.tagnames[1] } },

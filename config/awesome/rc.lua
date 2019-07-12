@@ -101,10 +101,11 @@ local scrlocker    = "slock"
 local emacsclient    = "emacsclient --create-frame"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    awful.layout.suit.spiral,
     awful.layout.suit.floating,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -121,8 +122,8 @@ awful.layout.layouts = {
     --awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
+    lain.layout.centerwork,
+    lain.layout.centerwork.horizontal,
     --lain.layout.termfair,
     --lain.layout.termfair.center,
 }

@@ -347,9 +347,9 @@ globalkeys = my_table.join(
         {description = "toggle wibox", group = "awesome"}),
 
     -- On the fly useless gaps change
-    awful.key({ modkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
+    awful.key({ modkey }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
-    awful.key({ modkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
+    awful.key({ modkey }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
 
     -- Dynamic tagging

@@ -4,6 +4,7 @@
 ####### EXPORTS ########
 # comment in as needed #
 
+export BROWSER="google-chrome-stable"
 # Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 

@@ -3,7 +3,7 @@
 # font = Hack 12 
 
 #best after bront
-font = DejaVu Sans Mono 12 
+font = Bront 14
 
 # font = Bront 14
 # font = Inconsolata 12
@@ -17,9 +17,10 @@ scrollback_lines = 10000
 # special
 foreground      = #eceff1
 foreground_bold = #eceff1
-background      = #282c34
 # cursor          = #46d9ff
 cursor          = #e91e63
+background          = #292d3e
+
 # ==========
 # Arc Dark 
 # ==========

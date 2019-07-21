@@ -74,7 +74,7 @@ theme.layout_magnifier                          = theme.icon_dir .. "/magnifier.
 theme.layout_floating                           = theme.icon_dir .. "/floating.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 20
+theme.useless_gap                               = 10
 theme.titlebar_close_button_normal              = theme.default_dir.."/titlebar/close_normal.png"
 theme.titlebar_close_button_focus               = theme.default_dir.."/titlebar/close_focus.png"
 theme.titlebar_minimize_button_normal           = theme.default_dir.."/titlebar/minimize_normal.png"
@@ -363,10 +363,12 @@ function theme.at_screen_connect(s)
             s.mytag,
             spr_small,
             s.mylayoutbox,
-            spr_small,
+            spr_very_small,
+            volumewidget,
+            spr_left,
             s.mypromptbox,
         },
-        nil, -- Middle widget
+        s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
@@ -381,48 +383,59 @@ function theme.at_screen_connect(s)
             -- play_pause_icon,
             -- bar,
             -- mpd_icon,
+            memicon,
+            mem,
             bar,
-            spr_very_small,
-            volumewidget,
-            spr_left,
+            cpu_icon,
+            cpuwidget,
+            bar,
+            tempicon,
+            temp,
+            bar,
+            calendar_icon,
+            calendarwidget,
+            bar,
+            clock_icon,
+            clockwidget,
+            bar,
         },
     }
 
     -- Create the bottom wibox
-    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 32 })
-    s.borderwibox = awful.wibar({ position = "bottom", screen = s, height = 1, bg = theme.fg_focus, x = 0, y = 33})
+    -- s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 32 })
+    -- s.borderwibox = awful.wibar({ position = "bottom", screen = s, height = 1, bg = theme.fg_focus, x = 0, y = 33})
 
-    -- Add widgets to the bottom wibox
-    s.mybottomwibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            spr_bottom_right,
-            -- netdown_icon,
-            -- networkwidget,
-            -- netup_icon,
-            bottom_bar,
-            memicon,
-            mem,
-            bottom_bar,
-            cpu_icon,
-            cpuwidget,
-            bottom_bar,
-            tempicon,
-            temp,
-            bottom_bar,
-            calendar_icon,
-            calendarwidget,
-            bottom_bar,
-            clock_icon,
-            clockwidget,
-        },
-    }
+    -- -- Add widgets to the bottom wibox
+    -- s.mybottomwibox:setup {
+    --     layout = wibox.layout.align.horizontal,
+    --     { -- Left widgets
+    --         layout = wibox.layout.fixed.horizontal,
+    --         mylauncher,
+    --     },
+    --     s.mytasklist, -- Middle widget
+    --     { -- Right widgets
+    --         layout = wibox.layout.fixed.horizontal,
+    --         spr_bottom_right,
+    --         -- netdown_icon,
+    --         -- networkwidget,
+    --         -- netup_icon,
+    --         bottom_bar,
+    --         memicon,
+    --         mem,
+    --         bottom_bar,
+    --         cpu_icon,
+    --         cpuwidget,
+    --         bottom_bar,
+    --         tempicon,
+    --         temp,
+    --         bottom_bar,
+    --         calendar_icon,
+    --         calendarwidget,
+    --         bottom_bar,
+    --         clock_icon,
+    --         clockwidget,
+    --     },
+    -- }
 end
 
 return theme

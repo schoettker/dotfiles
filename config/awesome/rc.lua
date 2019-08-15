@@ -325,6 +325,7 @@ globalkeys = my_table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
+
     awful.key({ modkey,           }, "Tab",
         function ()
            awful.spawn.with_shell("rofi -show")
@@ -333,7 +334,11 @@ globalkeys = my_table.join(
             --     client.focus:raise()
             -- end
         end,
-        {description = "go back", group = "client"}),
+        {description = "Launch rofi to switch clients", group = "client"}),
+
+    -- awful.key({ modkey           }, "Tab", revelation,
+    --    {description = "Launch rofi to switch clients", group = "client"}),
+
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
@@ -549,17 +554,16 @@ globalkeys = my_table.join(
 clientkeys = my_table.join(
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
-    awful.key({ modkey,           }, "f",
-        function (c)
-            c.fullscreen = not c.fullscreen
-            c:raise()
-        end,
-        {description = "toggle fullscreen", group = "client"}),
+    -- awful.key({ modkey,           }, "f",
+    --     function (c)
+    --         c.fullscreen = not c.fullscreen
+    --         c:raise()
+    --     end, {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),

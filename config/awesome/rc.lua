@@ -686,7 +686,29 @@ awful.rules.rules = {
       properties = { titlebars_enabled = false } },
 
     { rule_any = { class = { "termite", "Termite" } },
+      properties = { titlebars_enabled = false, floating = true },
+      callback = function (c)
+         c:geometry( { width = 900 , height = 500 } )
+         awful.placement.centered(c,nil)
+      end
+    },
+
+    { rule_any = { class = { "brave-browser", "Brave-browser" } },
       properties = { titlebars_enabled = false } },
+
+    { rule_any = { class = { "mpv", "mpv" } },
+      properties = { floating = true },
+      callback = function (c)
+         awful.placement.centered(c,nil)
+      end
+    },
+
+    { rule_any = { class = { "spacefm", "Spacefm" } },
+      properties = { floating = true },
+      callback = function (c)
+         awful.placement.centered(c,nil)
+      end
+    },
 
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },

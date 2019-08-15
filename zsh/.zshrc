@@ -183,6 +183,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # source $PATH:$HOME/.rvm/scripts/rvm
 
+alias e="emacsclient -n"
+alias edit="emacsclient -n"
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

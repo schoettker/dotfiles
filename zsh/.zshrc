@@ -189,6 +189,24 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #export PATH="$PATH:$HOME/.rvm/bin"
 
 # source $PATH:$HOME/.rvm/scripts/rvm
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
+DISABLE_AUTO_TITLE="true"
+#function precmd () {
+#  window_title="\033]0;${PWD}\007"
+#  echo -ne "$window_title"
+#}
+case $TERM in
+  xterm*)
+    precmd () {print -Pn "\e]0;%~\a"}
+    ;;
+esac
+
+
+# source ~/.nvm/nvm.sh
 
 alias e="emacsclient -n"
 alias edit="emacsclient -n"

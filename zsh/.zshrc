@@ -34,6 +34,10 @@ export PATH=$PATH:/usr/local/go/bin
 # export GOPATH="$HOME/Dev/goworkspace"
 # export PATH="$PATH:$GOPATH/bin"
 
+## Java ##
+#export JAVA_HOME=/usr/bin/java
+#export PATH=$PATH:/usr/lib/jvm
+
 ## Node ##
 export PATH=$PATH:./node_modules/.bin
 export PATH="$PATH:$HOME/.node_modules/bin"

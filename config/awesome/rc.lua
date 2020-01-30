@@ -72,6 +72,20 @@ awful.spawn.with_shell(
 
 -- }}}
 
+
+
+-- Autorun programs
+-- autorun = true
+-- autorunApps =
+-- {
+--       googleCalendar
+-- }
+-- if autorun then
+--    for app = 1, #autorunApps do
+--        awful.spawn(autorunApps[app])
+--    end
+-- end
+
 -- {{{ Variable definitions
 
 local themes = {
@@ -99,11 +113,13 @@ local file_explorer = "spacefm"
 local guieditor    = "emacs"
 local scrlocker    = "slock"
 local emacsclient    = "emacsclient --create-frame"
+local googleCalendar    = "google-chrome-stable --app=https://calendar.google.com/calendar/r/week"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    -- awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
     awful.layout.suit.tile.left,
     awful.layout.suit.spiral,
     awful.layout.suit.floating,
@@ -512,6 +528,8 @@ globalkeys = my_table.join(
               {description = "run gui editor", group = "launcher"}),
     awful.key({ modkey }, "c", function () awful.spawn(emacsclient) end,
               {description = "open emacsclient"}),
+    awful.key({ modkey }, "g", function () awful.spawn(googleCalendar) end,
+              {description = "open google calendar"}),
 
     -- Default
     --[[ Menubar
@@ -810,3 +828,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn_with_shell("~/.startscript.sh")
+if tonumber(os.date("%w")) == 2 then
+   awful.spawn(googleCalendar)
+end

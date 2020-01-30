@@ -192,6 +192,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias e="emacsclient -n"
 alias edit="emacsclient -n"
+alias mp3="youtube-dl --extract-audio --audio-format mp3"
+alias ydl="youtube-dl"
+alias uni="cd ~/library/docs/universe/ && marktext ."
+alias chrome="google-chrome-stable"
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

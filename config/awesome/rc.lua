@@ -725,6 +725,14 @@ awful.rules.rules = {
       end
     },
 
+    { rule_any = { name = {"Ediff", "ediff"}, instance = { "Ediff", "ediff" } },
+      properties = { floating = true, ontop=true },
+      callback = function (c)
+         awful.placement.bottom_right(c.focus)
+         c:geometry( { width = 800 , height = 400 } )
+      end
+    },
+
     { rule_any = { class = { "spacefm", "Spacefm" } },
       properties = { floating = true },
       callback = function (c)

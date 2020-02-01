@@ -44,8 +44,8 @@ export PATH="$PATH:$HOME/.node_modules/bin"
 # source /usr/share/nvm/init-nvm.sh
 
 ## Ruby ##
-export PATH=$PATH:$HOME/.rbenv/bin
-eval "$(rbenv init -)"
+# export PATH=$PATH:$HOME/.rbenv/bin
+# eval "$(rbenv init -)"
 
 ##export npm_config_prefix="~/.node_modules" ->  deprecated ?
 

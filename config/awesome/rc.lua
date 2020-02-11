@@ -836,6 +836,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn_with_shell("~/.startscript.sh")
-if tonumber(os.date("%w")) == 2 then
-   awful.spawn(googleCalendar)
-end
+
+-- if tonumber(os.date("%w")) == 2 then
+--    awful.spawn(googleCalendar)
+-- end

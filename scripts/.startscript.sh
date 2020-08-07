@@ -6,12 +6,14 @@
 #feh --bg-scale ~/.config/awesome/theme/yota.jpg &
 # xsetroot -cursor_name left_ptr &
 # setxkbmap -option grp:lctrl_lalt_toggle
-xmodmap ~/.xmodmap &
-pkill redshift
-redshift &
+# xmodmap ~/.xmodmap &
+# pkill redshift
+# redshift &
 
-#compton &
+# compton &
 #herbstclient detect_monitors
 #emacs --daemon &
 #syncthing -no-browser &
 
+# dropbox
+# bitwarden

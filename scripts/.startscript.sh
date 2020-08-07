@@ -3,8 +3,8 @@
 # feh --bg-scale ~/dotfiles/walls/mosaik.jpg &
 # feh --bg-scale ~/dotfiles/walls/wallmain.jpg # LE MAIN
 
-feh --bg-scale ~/.config/awesome/theme/yota.jpg &
-xsetroot -cursor_name left_ptr &
+#feh --bg-scale ~/.config/awesome/theme/yota.jpg &
+# xsetroot -cursor_name left_ptr &
 # setxkbmap -option grp:lctrl_lalt_toggle
 xmodmap ~/.xmodmap &
 pkill redshift

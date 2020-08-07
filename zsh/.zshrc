@@ -48,6 +48,7 @@ export PATH="$PATH:$HOME/.node_modules/bin"
 # eval "$(rbenv init -)"
 
 ##export npm_config_prefix="~/.node_modules" ->  deprecated ?
+export PATH="$PATH:$HOME/.local/bin"
 
 ## Misc ##
 export XDG_CONFIG_HOME="$HOME/.config"

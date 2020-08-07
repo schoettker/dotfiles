@@ -211,8 +211,8 @@ esac
 
 # source ~/.nvm/nvm.sh
 
-alias e="emacsclient -n"
-alias edit="emacsclient -n"
+alias e="emacsclient -nw"
+alias edit="emacsclient -nw"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
 alias ydl="youtube-dl"
 alias uni="cd ~/library/docs/universe/ && marktext ."

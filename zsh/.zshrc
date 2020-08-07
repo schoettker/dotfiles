@@ -61,10 +61,10 @@ source ~/.z.sh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="norm"
+# ZSH_THEME="norm"
 # ZSH_THEME="amuse"
 # ZSH_THEME="jnrowe"
-# ZSH_THEME="pygmalion"
+ZSH_THEME="pygmalion"
 # ZSH_THEME="smt"
 #
 # Uncomment the following line to disable auto-setting terminal title.

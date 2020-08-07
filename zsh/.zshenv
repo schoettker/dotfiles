@@ -1,6 +1,8 @@
 ### Comment stuff in as the need arises ###
 
 export EDITOR="/usr/bin/nvim"
+export LIBVA_DRIVER_NAME=iHD
+export GST_VAAPI_ALL_DRIVERS=1
 # export EMACS="*term*"
 # export TERM="xterm-256color"
 # export TERM=screen-256color

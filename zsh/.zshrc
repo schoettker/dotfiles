@@ -6,6 +6,7 @@
 
 # Android
 export ANDROID_HOME=$HOME/arch/Android
+export PATH=$PATH:$ANDROID_HOME/emulator
 
 export BROWSER="google-chrome-stable"
 # Path to oh-my-zsh installation.

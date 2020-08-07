@@ -50,6 +50,7 @@ export PATH="$PATH:$HOME/.node_modules/bin"
 ##export npm_config_prefix="~/.node_modules" ->  deprecated ?
 export PATH="$PATH:$HOME/.local/bin"
 
+export PATH="$PATH:$HOME/.emacs.d/bin"
 ## Misc ##
 export XDG_CONFIG_HOME="$HOME/.config"
 export FZF_DEFAULT_COMMAND='fd --type f'

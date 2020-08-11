@@ -214,7 +214,7 @@ esac
 alias e="emacsclient -nw"
 alias edit="emacsclient -nw"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
-alias ydl="youtube-dl"
+alias ydl="youtube-dl --no-mtime"
 alias uni="cd ~/library/docs/universe/ && marktext ."
 alias chrome="google-chrome-stable"
 alias ls="exa -bhlg"

@@ -17,4 +17,4 @@ xmodmap ~/.xmodmap &
 #syncthing -no-browser &
 
 # dropbox
-# bitwarden
+bitwarden &

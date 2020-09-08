@@ -38,15 +38,18 @@ line-color = #f00
 border-size = 0
 border-color = #ffffff
 
-padding-left = 0
+padding-left = 1
 padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = "Wuncon siji:pixelsize=10;1"
+; font-1 = "Font Awesome 5 Free:size=10:antialias=true:style=Solid;4"
+
+font-0 = "Noto Sans CJK KR:pixelsize=10;3"
+font-1 = Font Awesome 5 Free:pixelsize=9;2
+font-2 = Font Awesome 5 Free Solid:pixelsize=9;2
+font-3 = Font Awesome 5 Brands:pixelsize=9;2
 
 modules-left = bspwm
 modules-center = xwindow 
@@ -383,6 +386,12 @@ type = internal/bspwm
 pin-workspaces = true
 
 ;ws-icon-default = O
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+
+
+label-mode-padding = 2
 ; Output mode flags after focused state label
 ; Default: false
 inline-mode = false
@@ -405,17 +414,35 @@ reverse-scroll = true
 ; Default: false
 fuzzy-match = false
 
-;label-focused = %icon%
+label-visible = %icon%
+label-visible-padding = 1
+
+label-focused = %icon%
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+label-occupied = %icon%
+label-occupied-padding = 1
+
+label-urgent = %icon%
+label-urgent-padding = 1
+
+label-empty = %icon%
+label-empty-padding = 1
+
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
 label-focused-underline = #fba922
 
+
 ; Available tokens:
-;label-occupied = %icon%
 label-occupied-underline = #555555
 
 ; Available tokens:
-; label-urgent = %icon%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-underline = #9b0a20
+; label-separator =
+; label-separator-padding = 2

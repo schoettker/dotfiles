@@ -28,7 +28,7 @@ super + e
   emacs
 
 super + Tab
-  rofi -show window
+  rofi -show window -window-command "bspc node {window} -g hidden=off -f"
 
 super + shift + Tab
   ~/dotfiles/config/hidden-nodes.sh

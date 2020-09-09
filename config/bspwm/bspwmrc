@@ -2,7 +2,7 @@
 
 sxhkd &
 
-~/.startscript.sh
+# ~/.startscript.sh
 
 # Multihead behavior
 bspc config remove_disabled_monitors true

@@ -16,5 +16,6 @@ redshift &
 #emacs --daemon &
 #syncthing -no-browser &
 
-# dropbox
+clipster -d &
 bitwarden &
+dropbox &

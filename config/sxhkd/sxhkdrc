@@ -22,17 +22,30 @@ super + F2
 super + F3
   caja
 
+F7
+  ~/dotfiles/scripts/scratchpad.sh scratchterm
+
+F8
+  ~/dotfiles/scripts/scratchpad.sh scratchmacs --classname
+
+F9
+  ~/dotfiles/scripts/scratchpad.sh scratchbrowser --classname
+
+
 
 # editor
 super + e
   emacs
 
 super + Tab
-  rofi -show window -window-command "bspc node {window} -g hidden=off -f"
+  ~/dotfiles/scripts/window-switcher.py
+  # rofi -show window -window-command "bspc node {window} -g hidden=off -f"
 
-super + shift + Tab
-  ~/dotfiles/config/hidden-nodes.sh
+# super + shift + Tab
+  # ~/dotfiles/config/hidden-nodes.sh
 
+super + shift + s
+  ~/dotfiles/scripts/screenshot.sh
 
 super + n
   bspc node -g hidden=on
@@ -51,6 +64,9 @@ super + shift + Escape
 # close and kill
 super + {_,shift + }q
 	bspc node -{c,k}
+
+super + c
+  clipster -sc
 
 # alternate between the tiled and monocle layout
 # super + m
@@ -89,8 +105,8 @@ super + {_,shift + }{h,j,k,l}
 # 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local
+# super + {_,shift + }c
+# 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}

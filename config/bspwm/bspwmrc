@@ -21,6 +21,7 @@ bspc config gapless_monocle      true
 
 # super/win mouse to move/resize
 bspc config pointer_modifier mod4
+bspc config focus_follows_pointer true
 
 # Always use the last WM_CLASS from the sequence
 # if there are 2 values the first one refers to the instance
@@ -30,5 +31,18 @@ bspc rule -a Google-chrome desktop='^1' follow=on
 bspc rule -a firefox desktop='^1' follow=on
 bspc rule -a Emacs state=tiled desktop='^2' follow=on
 bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=838x484+0+0
+bspc rule -a mpv state=floating follow=on center=true rectangle=1280x720+0+0
+
+
+sidebarw=514
+
+# locked=on if it should not be closeable
+bspc rule -a scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x333+0+0
+
+bspc rule -a Emacs:scratchmacs border=off sticky=on state=floating hidden=off locked=off rectangle=${sidebarw}x$(xdpyinfo  | grep -oP 'dimensions:\s+[0-9]*x\K[0-9]+')+$(($(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+') - $sidebarw))+0
+
+bspc rule -a scratchbrowser border=off sticky=on state=floating hidden=off locked=off rectangle=${sidebarw}x$(xdpyinfo  | grep -oP 'dimensions:\s+[0-9]*x\K[0-9]+')+$(($(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+') - $sidebarw))+0
+
+bspc rule -a qutebrowser:scratchbrowser border=off sticky=on state=floating hidden=off locked=off rectangle=${sidebarw}x$(xdpyinfo  | grep -oP 'dimensions:\s+[0-9]*x\K[0-9]+')+$(($(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+') - $sidebarw))+0
 
 #bspc monitor --reset-desktops 1 2 3 4 5 6 7 8 9

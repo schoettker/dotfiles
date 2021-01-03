@@ -48,6 +48,14 @@ export PATH="$PATH:$HOME/.node_modules/bin"
 # export PATH=$PATH:$HOME/.rbenv/bin
 # eval "$(rbenv init -)"
 
+# R
+# but in the end its easier to just sudo chown -R $USER /usr/lib/R
+# and maybe /usr/share
+export R_LIBS="~/arch/pkgs/R"
+export R_LIBS_USER="~/arch/pkgs/R"
+
+
+
 ##export npm_config_prefix="~/.node_modules" ->  deprecated ?
 export PATH="$PATH:$HOME/.local/bin"
 

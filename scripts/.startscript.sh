@@ -18,4 +18,4 @@ redshift &
 
 clipster -d &
 bitwarden &
-dropbox &
+# dropbox &

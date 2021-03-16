@@ -16,11 +16,6 @@ font:
     style: "Regular"
 
 colors:
-  # Default colors
-  primary:
-    background: "0x292C3E"
-    foreground: "0xEBEBEB"
-
   # Cursor colors
   cursor:
     text: "0xFFFFFF"
@@ -28,6 +23,11 @@ colors:
   vi_mode_cursor:
     text: "0xFFFFFF"
     cursor: "0xffa500"
+
+  # Default colors
+  primary:
+    background: "0x292d3e"
+    foreground: "0xd0d0d0"
 
   # Normal colors
   normal:

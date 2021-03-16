@@ -1,8 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#  exec tmux
+#fi
 ####### EXPORTS ########
 # comment in as needed #
+export TERM=xterm-256color
 
 # Android
 export ANDROID_HOME=$HOME/arch/Android
@@ -218,7 +221,7 @@ esac
 
 
 # source ~/.nvm/nvm.sh
-
+alias tmr="tmux rename-window"
 alias e="emacsclient -nw"
 alias edit="emacsclient -nw"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"

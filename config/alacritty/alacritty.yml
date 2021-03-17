@@ -1,3 +1,6 @@
+key_bindings:
+  - { key: T, mods: Control, action: SpawnNewInstance }
+
 # Ubuntu Mono (Nerd patch) seems to be the closest to Bront which is wrongly
 # patched
 font:

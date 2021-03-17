@@ -221,9 +221,8 @@ esac
 
 
 # source ~/.nvm/nvm.sh
+alias magit="emacs -nw --funcal=magit-status"
 alias tmr="tmux rename-window"
-alias e="emacsclient -nw"
-alias edit="emacsclient -nw"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
 alias ydl="youtube-dl --no-mtime"
 alias uni="cd ~/library/docs/universe/ && marktext ."

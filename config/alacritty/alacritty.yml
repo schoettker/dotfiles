@@ -1,5 +1,5 @@
 key_bindings:
-  - { key: T, mods: Control, action: SpawnNewInstance }
+  - { key: T, mods: Control|Shift, action: SpawnNewInstance }
 
 # Ubuntu Mono (Nerd patch) seems to be the closest to Bront which is wrongly
 # patched

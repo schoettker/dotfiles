@@ -1,0 +1,45 @@
+#!/bin/bash
+SESSION_NAME="work"
+LOG_WINDOW_NAME="logbook"
+PROJ1_WINDOW_NAME="notrzr-web"
+PROJ2_WINDOW_NAME="notrzr-server"
+PROJ3_WINDOW_NAME="wlp"
+# PROJ4_WINDOW_NAME="wlp-be"
+SCRATCH_WINDOW_NAME="scratch"
+
+# Check to see if we're already running the session
+tmux has-session -t $SESSION_NAME &> /dev/null
+
+if [ $? != 0 ] ; then
+    # Create overall tmux session
+    tmux new-session -d -s $SESSION_NAME > /dev/null
+
+    # Since we get one window for free on creation, make use of it
+    tmux rename-window -t $SESSION_NAME:1 $LOG_WINDOW_NAME
+    tmux send-keys -t $SESSION_NAME:1 "cd ~/dev/brain/work" C-m 'clear' C-m
+    tmux send-keys -t $SESSION_NAME:1 "emacs -nw logbook.org"
+
+    # Project 1
+    tmux new-window -t $SESSION_NAME:2 -n $PROJ1_WINDOW_NAME
+    tmux send-keys -t  $SESSION_NAME:2 "cd ~/dev/notrzr-client" C-m 'vim' C-m
+
+    # Project 2
+    tmux new-window -t $SESSION_NAME:3 -n $PROJ2_WINDOW_NAME
+    tmux send-keys -t  $SESSION_NAME:3 "cd ~/dev/notrzr-api" C-m 'clear' C-m 'vim' C-m
+
+    # Project 3
+    tmux new-window -t $SESSION_NAME:4 -n $PROJ3_WINDOW_NAME
+    tmux send-keys -t  $SESSION_NAME:4 "cd ~/dev/white-label-portal" C-m 'clear' C-m 'vim' C-m
+
+    # Scratch Window
+    tmux new-window -t $SESSION_NAME:5 -n $SCRATCH_WINDOW_NAME
+
+    # Select Project 1
+    tmux select-window -t $SESSION_NAME:2
+
+else
+    echo "tmux session already running, attaching..."
+    sleep 2
+fi
+
+tmux attach

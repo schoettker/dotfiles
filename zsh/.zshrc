@@ -221,6 +221,7 @@ esac
 
 
 # source ~/.nvm/nvm.sh
+alias work="$HOME/dotfiles/scripts/work"
 alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
 alias magit="emacs -nw --funcal=magit-status"
 alias tmr="\tmux rename-window"

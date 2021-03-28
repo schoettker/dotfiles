@@ -224,6 +224,7 @@ esac
 alias work="$HOME/dotfiles/scripts/work"
 alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
 alias magit="emacs -nw --funcal=magit-status"
+alias dired="emacs -nw --funcal=dired"
 alias tmr="\tmux rename-window"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
 alias ydl="youtube-dl --no-mtime"
@@ -263,3 +264,8 @@ PERL5LIB="/home/eos/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/eos/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/eos/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/eos/perl5"; export PERL_MM_OPT;
+
+
+
+source "/usr/share/fzf/key-bindings.zsh"
+source "/usr/share/fzf/completion.zsh"

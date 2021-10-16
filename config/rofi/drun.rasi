@@ -18,8 +18,9 @@ configuration {
 window {
   transparency:                   "real";
   background-color:               @background;
-/*  height:                         742px; */
-/*  width:                          1321px; */
+  fullscreen:                     true;
+ /* height:                         100%; */
+ /* width:                          100%; */
   location:                       northwest;
   anchor:                         northwest;
   x-offset:                       45;
@@ -60,15 +61,16 @@ entry {
 
 
 listview {
-  columns: 6;
+  columns: 3;
   spacing: 4;
   dynamic: false;
+  margin: 45 0 0 0;
 }
 
 element {
   border-radius: 4;
-  orientation: vertical;
-  padding: 30 0 30 0;
+  /* orientation: vertical; */
+  padding: 10 0 10 0;
 }
 
 
@@ -102,12 +104,13 @@ element selected.active {
 }
 
 element-icon {
-    size:                           32;
+    size:                           64;
     border:                         0px;
 }
 
 element-text {
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         10px 15px 0px 15px;
+    vertical-align:                 0.5;
+    /* margin:                         10px 15px 0px 15px; */
 }

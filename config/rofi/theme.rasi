@@ -1,8 +1,10 @@
 /*Dracula theme based on the Purple official rofi theme*/
 
 * {
-    font: "Jetbrains Mono 12";
+    /* font: "Jetbrains Mono 12"; */
+    font: "Bront 15";
     foreground: #f8f8f2;
+    text-color: #f8f8f2;
     background-color: #282a36;
     active-background: #6272a4;
     urgent-background: #ff5555;
@@ -30,7 +32,8 @@
     padding:      1px ;
 }
 #textbox {
-    text-color: @foreground;
+    /* text-color: #f8f8f2; */
+    /* foreground: #f8f8f2; */
 }
 #listview {
     fixed-height: 0;
@@ -43,10 +46,13 @@
 #element {
     border:  0;
     padding: 1px ;
+    /* text-color:       #ff0000; */
+    /* foreground:       #ff0000; */
 }
 #element.normal.normal {
     background-color: @background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
+    /* foreground:       #ff0000; */
 }
 #element.normal.urgent {
     background-color: @urgent-background;
@@ -54,31 +60,31 @@
 }
 #element.normal.active {
     background-color: @active-background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #element.selected.normal {
     background-color: @selected-background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #element.selected.urgent {
     background-color: @selected-urgent-background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #element.selected.active {
     background-color: @selected-active-background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #element.alternate.normal {
     background-color: @background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #element.alternate.urgent {
     background-color: @urgent-background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #element.alternate.active {
     background-color: @active-background;
-    text-color:       @foreground;
+    /* text-color:       #ff0000; */
 }
 #scrollbar {
     width:        2px ;
@@ -105,7 +111,8 @@
 }
 #entry {
     spacing:    0;
-    text-color: @foreground;
+    /* text-color:       #ff0000; */
+    /* foreground:       #ff0000; */
 }
 #prompt {
     spacing:    0;

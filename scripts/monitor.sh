@@ -14,7 +14,8 @@ extern=HDMI-1
 # fi
 if xrandr | grep "$extern disconnected"; then
   sed -i 's/!//' ~/.Xresources
-  xrandr --output "$extern" --off --output "$intern" --mode 1920x1080_60.00 --dpi 120
+  xrandr --output "$extern" --off --output "$intern"  --dpi 120
+# --mode 1920x1080_60.00
 else
   # xrandr --output HDMI1 --mode 1920x1080
   sed -i 's/^Xft.dpi:/!Xft.dpi:/' ~/.Xresources

@@ -48,6 +48,8 @@ export PATH="$PATH:$HOME/.node_modules/bin"
 # source /usr/share/nvm/init-nvm.sh
 
 ## Ruby ##
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+
 # export PATH=$PATH:$HOME/.rbenv/bin
 # eval "$(rbenv init -)"
 

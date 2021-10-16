@@ -1,8 +1,8 @@
-./.monitor.sh
+~/dotfiles/scripts/monitor.sh
 picom -b --experimental-backends --dbus --config ~/.config/picom.conf &
 # feh --bg-scale ~/dotfiles/walls/feh_024530_000032_1490826107465.jpg &
 # feh --bg-scale ~/dotfiles/walls/mosaik.jpg &
-feh --bg-scale ~/dotfiles/walls/wallmain.jpg & # LE MAIN
+feh --bg-scale ~/dotfiles/walls/wallAppleYosemite.jpg
 
 #feh --bg-scale ~/.config/awesome/theme/yota.jpg &
 xsetroot -cursor_name left_ptr &
@@ -18,4 +18,6 @@ redshift &
 
 clipster -d &
 bitwarden &
+caffeine -a &
+fusuma &|
 # dropbox &

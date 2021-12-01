@@ -19,5 +19,5 @@ redshift &
 clipster -d &
 bitwarden &
 caffeine -a &
-fusuma &|
+# fusuma &|
 # dropbox &

@@ -134,6 +134,15 @@ super + {Left,Right}
 super + {1-9,0}
 	bspc desktop -f '^{1-9,10}'
 
+super + x
+  bspc desktop -f '^5'
+
+super + w
+  bspc desktop -f '^5'
+
+super + grave
+  bspc desktop last -f
+
 # Send to desktop
 super + ctrl + {1-9,0}
 	bspc node -d '^{1-9,10}'

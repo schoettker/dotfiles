@@ -29,6 +29,9 @@ export GOPATH="$HOME/dev/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 
+###################################
+# These are nolonger needed afaik #
+###################################
 # export GOROOT="$HOME/Dev/go"
 # export GOBIN="/usr/bin/go"
 # export GOARCH="amd64"

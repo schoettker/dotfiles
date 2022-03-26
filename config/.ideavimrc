@@ -1,0 +1,53 @@
+source ~/.intellimacs/spacemacs.vim
+
+" (Optional) Enable other Intellimacs modules
+source ~/.intellimacs/extra.vim
+source ~/.intellimacs/major.vim
+source ~/.intellimacs/hybrid.vim
+
+" (Optional) Enable which-key plugin
+source ~/.intellimacs/which-key.vim
+
+" (Optional) My own vim commands
+nnoremap Y y$
+
+" (Optional) Comma for major mode
+nmap , <leader>m
+vmap , <leader>m
+
+" (Optional) Add/edit actions
+nnoremap <leader>gl    :action Vcs.Show.Log<CR>
+vnoremap <leader>gl    :action Vcs.Show.Log<CR>
+
+
+" Custom Lenno
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+set relativenumber
+vnoremap \\ :noh<return>
+nnoremap \\ :noh<return>
+
+nnoremap gcc    :action CommentByLineComment<CR>
+vnoremap gcc    :action CommentByLineComment<CR>
+
+nnoremap <leader>bb    :action RecentFiles<CR>
+vnoremap <leader>bb    :action RecentFiles<CR>
+
+nnoremap <leader>fr    :action RecentFiles<CR>
+vnoremap <leader>fr    :action RecentFiles<CR>
+
+nnoremap <leader>/    :action Find<CR>
+
+nnoremap <leader>pp    :action GotoFile<CR>
+vnoremap <leader>pp    :action GotoFile<CR>
+
+nnoremap <leader>p/    :action FindInPath<CR>
+vnoremap <leader>p/    :action FindInPath<CR>
+
+
+nnoremap <leader>x    :action GotoAction<CR>
+vnoremap <leader>x    :action GotoAction<CR>
+
+nnoremap g[    :action VcsShowPrevChangeMarker<CR>
+vnoremap g[    :action VcsShowPrevChangeMarker<CR>
+nnoremap g]    :action VcsShowNextChangeMarker<CR>
+vnoremap g]    :action VcsShowNextChangeMarker<CR>

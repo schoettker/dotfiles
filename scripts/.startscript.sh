@@ -21,4 +21,5 @@ bitwarden-desktop &
 caffeine -a &
 # fusuma &|
 # dropbox &
-logseq &
+# logseq &
+emacs --name orgmacs --eval='(progn (org-agenda-list)(split-window-right)(org-capture nil "aj"))' &

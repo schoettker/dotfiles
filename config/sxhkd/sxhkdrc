@@ -47,6 +47,10 @@ super + Tab
 super + shift + s
   ~/dotfiles/scripts/screenshot.sh
 
+
+super + b
+  ~/dotfiles/scripts/library-opener.sh
+
 super + n
   bspc node -g hidden=on
 

@@ -21,3 +21,15 @@ else
   sed -i 's/^Xft.dpi:/!Xft.dpi:/' ~/.Xresources
   xrandr --output "$intern" --off --output "$extern" --primary --auto
 fi
+
+# xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --rotate normal
+
+
+
+# Sadly the below is still a bit blurry on the external screen due to '--scale'
+# if xrandr | grep "$extern disconnected"; then
+#   xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal
+# else
+#   # also required 128DPI in ~/.Xresources
+#   xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x1480 --rotate normal --output HDMI-1 --mode 1920x1080 --scale 1.25x1.25 --pos 0x0 --rotate normal
+# fi

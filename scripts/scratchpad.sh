@@ -2,7 +2,7 @@
 
 declare -A actions
 
-actions["scratchterm"]="termite --class=scratchterm"
+actions["scratchterm"]="alacritty --class=scratchterm"
 actions["scratchmacs"]="emacs ~/library/Dropbox/org/scratchpad.org --name scratchmacs"
 actions["scratchbrowser"]="qutebrowser --qt-arg name scratchbrowser"
 # actions["scratchbrowser"]="firefox --class scratchbrowser -private"

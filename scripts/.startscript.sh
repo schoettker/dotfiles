@@ -21,3 +21,4 @@ bitwarden-desktop &
 caffeine -a &
 # fusuma &|
 # dropbox &
+logseq &

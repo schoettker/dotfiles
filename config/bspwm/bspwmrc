@@ -43,6 +43,9 @@ sidebarw=514
 # locked=on if it should not be closeable
 bspc rule -a scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x333+0+0
 
+
+bspc rule -a Alacritty:scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x333+0+0
+
 bspc rule -a Emacs:scratchmacs border=off sticky=on state=floating hidden=off locked=off rectangle=${sidebarw}x$(xdpyinfo  | grep -oP 'dimensions:\s+[0-9]*x\K[0-9]+')+$(($(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+') - $sidebarw))+0
 
 bspc rule -a scratchbrowser border=off sticky=on state=floating hidden=off locked=off rectangle=${sidebarw}x$(xdpyinfo  | grep -oP 'dimensions:\s+[0-9]*x\K[0-9]+')+$(($(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+') - $sidebarw))+0

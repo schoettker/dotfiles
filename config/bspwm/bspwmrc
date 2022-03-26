@@ -34,6 +34,7 @@ bspc rule -a firefox desktop='^1' follow=on
 bspc rule -a Emacs state=tiled desktop='^2' follow=on
 bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=1340x720+0+0
 bspc rule -a mpv state=floating follow=on center=true rectangle=1280x720+0+0
+bspc rule -a Logseq desktop='^5' state=fullscreen
 
 
 sidebarw=514

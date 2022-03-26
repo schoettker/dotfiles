@@ -229,6 +229,7 @@ esac
 alias work="$HOME/dotfiles/scripts/work"
 alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
 alias magit="emacs -nw --funcal=magit-status"
+alias gittouch='git commit --amend --date="$(date -R)"'
 alias dired="emacs -nw --funcal=dired"
 alias tmr="\tmux rename-window"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"

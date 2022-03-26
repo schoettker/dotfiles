@@ -239,6 +239,7 @@ alias chrome="google-chrome-stable"
 alias ls="exa -bhlg"
 alias l="exa"
 alias cat="\bat"
+alias '?'="type -a"
 export BAT_PAGER="less -RF" # to enable mouse wheel scrolling
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`

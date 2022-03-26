@@ -17,7 +17,7 @@ redshift &
 #syncthing -no-browser &
 
 clipster -d &
-bitwarden &
+bitwarden-desktop &
 caffeine -a &
 # fusuma &|
 # dropbox &

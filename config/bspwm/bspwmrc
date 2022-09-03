@@ -38,8 +38,11 @@ bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectang
 
 bspc rule -a mpv state=floating follow=on center=true rectangle=1280x720+0+0
 bspc rule -a Logseq desktop='^5' state=fullscreen
-
+# bspc rule -a gpclient state=floating desktop='^9' follow=off rectangle=680x1206+0+68
+# bspc rule -a Google-chrome:calendar.google.com__calendar_render desktop='^5' follow=off
+# bspc rule -a Slack desktop='^5' follow=off
 bspc rule -a Emacs:orgmacs state=tiled desktop='^5' follow=off
+
 
 sidebarw=514
 

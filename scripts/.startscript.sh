@@ -20,6 +20,9 @@ redshift &
 clipster -d &
 bitwarden-desktop &
 caffeine -a &
+# gpclient &
+# slack &
+# google-chrome-stable --app="https://calendar.google.com/calendar/render#main_7" &
 # fusuma &|
 # dropbox &
 # logseq &

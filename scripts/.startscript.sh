@@ -16,6 +16,7 @@ redshift &
 #emacs --daemon &
 #syncthing -no-browser &
 
+# /usr/bin/dust &
 clipster -d &
 bitwarden-desktop &
 caffeine -a &

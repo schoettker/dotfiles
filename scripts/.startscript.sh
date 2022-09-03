@@ -26,4 +26,4 @@ caffeine -a &
 # fusuma &|
 # dropbox &
 # logseq &
-emacs --name orgmacs --eval='(progn (org-agenda-list)(split-window-right)(org-capture nil "aj"))' &
+# emacs --name orgmacs --eval='(progn (org-agenda-list)(split-window-right)(org-capture nil "aj"))' &

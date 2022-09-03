@@ -226,6 +226,8 @@ esac
 
 
 # source ~/.nvm/nvm.sh
+alias npm-default-registry='npm config set registry https://registry.npmjs.org'
+alias npm-spotify-registry='npm config set registry https://artifactory.spotify.net/artifactory/api/npm/virtual-npm'
 alias work="$HOME/dotfiles/scripts/work"
 alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
 alias magit="emacs -nw --funcal=magit-status"

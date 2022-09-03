@@ -1,5 +1,6 @@
 [user]
 	email = lennartschoettker@hotmail.com
+	# email = lschoettker@spotify.com
 	name = Lennart Schoettker
 [core]
 	excludesfile = /home/chinchi/.gitignore_global
@@ -8,3 +9,7 @@
 	l = log --oneline --decorate --all --graph
 	s = status -s
 	lg = log --oneline --reverse
+# [submodule]
+# 	recurse = true
+[push]
+	autoSetupRemote = true

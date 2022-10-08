@@ -51,3 +51,5 @@ nnoremap g[    :action VcsShowPrevChangeMarker<CR>
 vnoremap g[    :action VcsShowPrevChangeMarker<CR>
 nnoremap g]    :action VcsShowNextChangeMarker<CR>
 vnoremap g]    :action VcsShowNextChangeMarker<CR>
+
+nnoremap <leader><leader> :action emacsIDEAs.AceJumpWord<CR>

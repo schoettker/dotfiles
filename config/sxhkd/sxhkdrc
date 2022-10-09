@@ -45,7 +45,7 @@ super + Tab
   # ~/dotfiles/config/hidden-nodes.sh
 
 super + shift + s
-  ~/dotfiles/scripts/screenshot.sh
+  flameshot gui
 
 
 super + b

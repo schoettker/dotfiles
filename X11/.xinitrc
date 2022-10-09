@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 #~/.monitor.sh
-~/.startscript.sh
+~/dotfiles/scripts/.startscript.sh
 exec bspwm
 #exec awesome

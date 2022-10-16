@@ -1,11 +1,13 @@
 key_bindings:
   - { key: T, mods: Control|Shift, action: SpawnNewInstance }
 
+
 window:
   padding:
     x: 4
     y: 4
   dynamic_padding: true
+  dynamic_title: false
 
 # Ubuntu Mono (Nerd patch) seems to be the closest to Bront which is wrongly
 # patched

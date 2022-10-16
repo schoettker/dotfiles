@@ -32,25 +32,26 @@ bspc rule -a Chromium desktop='^1' follow=on
 bspc rule -a Google-chrome desktop='^1' follow=on
 bspc rule -a firefox desktop='^1' follow=on
 bspc rule -a Emacs state=tiled desktop='^2' follow=on
-bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=1340x720+0+0
+# bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=1340x720+0+0
 # High DPI
-# bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=2122x1106+0+0
+bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=2122x1106+0+0
 
 bspc rule -a mpv state=floating follow=on center=true rectangle=1280x720+0+0
 bspc rule -a Logseq desktop='^5' state=fullscreen
-# bspc rule -a gpclient state=floating desktop='^9' follow=off rectangle=680x1206+0+68
-# bspc rule -a Google-chrome:calendar.google.com__calendar_render desktop='^5' follow=off
-# bspc rule -a Slack desktop='^5' follow=off
+bspc rule -a gpclient state=floating desktop='^9' follow=off rectangle=680x1206+0+68
+bspc rule -a Google-chrome:calendar.google.com__calendar_render desktop='^5' follow=off
+bspc rule -a thunderbird desktop='^5' follow=off
+bspc rule -a Slack desktop='^5' follow=off
 bspc rule -a Emacs:orgmacs state=tiled desktop='^5' follow=off
 
 
-sidebarw=514
+sidebarw=1040
 
 # locked=on if it should not be closeable
-bspc rule -a scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x333+0+0
+bspc rule -a scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x533+0+0
 
 
-bspc rule -a Alacritty:scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x333+0+0
+bspc rule -a Alacritty:scratchterm border=off sticky=on state=floating hidden=off locked=off rectangle=$(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+')x533+0+0
 
 bspc rule -a Emacs:scratchmacs border=off sticky=on state=floating hidden=off locked=off rectangle=${sidebarw}x$(xdpyinfo  | grep -oP 'dimensions:\s+[0-9]*x\K[0-9]+')+$(($(xdpyinfo  | grep -oP 'dimensions:\s+\K[0-9]+') - $sidebarw))+0
 

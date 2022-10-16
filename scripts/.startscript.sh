@@ -1,5 +1,5 @@
-~/dotfiles/scripts/monitor.sh
-picom -b --experimental-backends --dbus --config ~/.config/picom.conf &
+# ~/dotfiles/scripts/monitor.sh
+# picom -b --experimental-backends --dbus --config ~/.config/picom.conf &
 # feh --bg-scale ~/dotfiles/walls/feh_024530_000032_1490826107465.jpg &
 # feh --bg-scale ~/dotfiles/walls/mosaik.jpg &
 feh --bg-scale ~/dotfiles/walls/wallAppleYosemite.jpg
@@ -15,14 +15,15 @@ redshift &
 #herbstclient detect_monitors
 #emacs --daemon &
 #syncthing -no-browser &
-
-# /usr/bin/dust &
+flameshot &
+dunst &
 clipster -d &
 bitwarden-desktop &
-caffeine -a &
-# gpclient &
-# slack &
+# caffeine & -> as caffeine pkgs don't wanna work anymore, just install xfce4-power-manager and configure never sleep in there and then auto-start
+gpclient &
+slack &
 # google-chrome-stable --app="https://calendar.google.com/calendar/render#main_7" &
+thunderbird &
 # fusuma &|
 # dropbox &
 # logseq &

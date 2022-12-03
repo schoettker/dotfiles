@@ -11,6 +11,7 @@ super + shift + r
 # program launcher
 super + d
   rofi -fullscreen -show drun -theme ~/dotfiles/config/rofi/drun.rasi
+  # rofi -dpi 192 -fullscreen -show drun -theme ~/dotfiles/config/rofi/drun.rasi
 
 # Apps
 super + F1
@@ -27,6 +28,8 @@ F7
 
 F8
   ~/dotfiles/scripts/scratchpad.sh scratchmacs --classname
+  # emacs --name scratchmacs --eval='(progn  (select-window (split-window-below 14)) (find-file "~/dev/brain/work/spotify.org") (previous-window-any-frame) (org-agenda-list) (previous-window-any-frame))'
+  # emacs --name scratchmacs --eval='(progn (find-file "~/dev/brain/work/spotify.org") (select-window (split-window-below -20))(org-agenda-list)(previous-window-any-frame))'
 
 F9
   ~/dotfiles/scripts/scratchpad.sh scratchbrowser --classname

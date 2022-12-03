@@ -53,3 +53,5 @@ nnoremap g]    :action VcsShowNextChangeMarker<CR>
 vnoremap g]    :action VcsShowNextChangeMarker<CR>
 
 nnoremap <leader><leader> :action emacsIDEAs.AceJumpWord<CR>
+unmap grr
+nnoremap gr :action FindUsages<CR>

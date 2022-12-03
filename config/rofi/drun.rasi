@@ -61,7 +61,7 @@ entry {
 
 
 listview {
-  columns: 3;
+  columns: 1;
   spacing: 4;
   dynamic: false;
   margin: 45 0 0 0;

@@ -32,6 +32,7 @@ bspc rule -a Chromium desktop='^1' follow=on
 bspc rule -a Google-chrome desktop='^1' follow=on
 bspc rule -a firefox desktop='^1' follow=on
 bspc rule -a Emacs state=tiled desktop='^2' follow=on
+bspc rule -a jetbrains-idea desktop='^2' follow=off
 # bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=1340x720+0+0
 # High DPI
 bspc rule -a Bitwarden state=floating desktop='^9' follow=on center=true rectangle=2122x1106+0+0

@@ -1,0 +1,29 @@
+swipe:
+  3:
+    right:
+      command: "bspc desktop -f next.local" # History forward
+    left:
+      command: "bspc desktop -f prev.local" # History back
+  # 4:
+  #   right:
+      # command: "xdotool key alt+Right" # History forward
+      # threshhold: 0.2
+    # left:
+    #   command: "xdotool key alt+Left" # History forward
+      # threshhold: 0.2
+# pinch:
+#   2:
+#     in:
+#       command: "bspc node -t fullscreen"
+#       threshhold: 0.2
+#     out:
+#       command: "bspc node -t tiled"
+#       threshhold: 0.2
+#
+threshold:
+  swipe: 0.3
+  pinch: 0.1
+
+interval:
+  swipe: 1
+  pinch: 1

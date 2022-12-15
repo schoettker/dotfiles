@@ -73,20 +73,23 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Fuzzy path jumper 'z' by rupa
-source ~/.z.sh
+source ~/.z-jumper.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="norm"
-# ZSH_THEME="amuse"
+ # ZSH_THEME="amuse"
 # ZSH_THEME="jnrowe"
- ZSH_THEME="pygmalion"
-# ZSH_THEME="spaceship"
+# ZSH_THEME="pygmalion"
+#ZSH_THEME="spaceship"
 # ZSH_THEME="smt"
+# ZSH_THEME="fletcherm"
+# ZSH_THEME="lambda"
+ZSH_THEME="simple"
 #
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -278,5 +281,12 @@ PERL_MM_OPT="INSTALL_BASE=/home/eos/perl5"; export PERL_MM_OPT;
 
 
 
-source "/usr/share/fzf/key-bindings.zsh"
-source "/usr/share/fzf/completion.zsh"
+#source "/usr/share/fzf/key-bindings.zsh"
+#source "/usr/share/fzf/completion.zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Work specific settings -> comment in as needed
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export PATH="/opt/homebrew/opt/node@16/bin:$PATH"

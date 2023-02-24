@@ -44,6 +44,8 @@ nnoremap <leader>p/    :action FindInPath<CR>
 vnoremap <leader>p/    :action FindInPath<CR>
 
 
+" if this still gets overwritten go into ~/.intellimacs/spacemacs/spacemacs.vim to deactivate ~/.intellimacs/spacemacs/text.vim
+unmap <leader>x
 nnoremap <leader>x    :action GotoAction<CR>
 vnoremap <leader>x    :action GotoAction<CR>
 
@@ -53,5 +55,8 @@ nnoremap g]    :action VcsShowNextChangeMarker<CR>
 vnoremap g]    :action VcsShowNextChangeMarker<CR>
 
 nnoremap <leader><leader> :action emacsIDEAs.AceJumpWord<CR>
+" if this still gets overwritten go into ~/.intellimacs/extra/settings.vim to deactivate
+set ReplaceWithRegister&
 unmap grr
-nnoremap gr :action FindUsages<CR>
+nnoremap gr :action ShowUsages<CR>
+nnoremap gR :action FindUsages<CR>

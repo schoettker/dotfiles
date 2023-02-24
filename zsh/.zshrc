@@ -250,7 +250,7 @@ alias doom-force-upgrade="cd ~/.emacs.d && rm -rf .local && git pull && doom ins
 export BAT_PAGER="less -RF" # to enable mouse wheel scrolling
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+# [[ -f /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eoshiru/.nvm/versions/node/v11.0.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan

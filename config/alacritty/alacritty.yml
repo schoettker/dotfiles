@@ -2,23 +2,23 @@ key_bindings:
   # - { key: T, mods: Control|Shift, action: SpawnNewInstance }
   # tmux keybindings (obtained via `xxd -ps`)
   - { key: T, mods: Command, chars: "\x02\x63" }
-  - { key: Key1, mods: Command, chars: "\x02\x31" }
-  - { key: Key2, mods: Command, chars: "\x02\x32" }
-  - { key: Key3, mods: Command, chars: "\x02\x33" }
-  - { key: Key4, mods: Command, chars: "\x02\x34" }
-  - { key: Key5, mods: Command, chars: "\x02\x35" }
-  - { key: Key6, mods: Command, chars: "\x02\x36" }
-  - { key: Key7, mods: Command, chars: "\x02\x37" }
-  - { key: Key8, mods: Command, chars: "\x02\x38" }
-  - { key: Key9, mods: Command, chars: "\x02\x39" }
-  - { key: W, mods: Command, chars: "\x02\x78" }
-  - { key: V, mods: Command, chars: "\x02\x25" }
-  - { key: S, mods: Command, chars: "\x02\x22" }
-  - { key: J, mods: Command, chars: "\x02\x6a" }
-  - { key: L, mods: Command, chars: "\x02\x6c" }
-  - { key: K, mods: Command, chars: "\x02\x6b" }
-# Needs https://github.com/alacritty/alacritty/issues/5346#issuecomment-1055695103
-  - { key: H, mods: Command, chars: "\x02\x68" }
+#   - { key: Key1, mods: Command, chars: "\x02\x31" }
+#   - { key: Key2, mods: Command, chars: "\x02\x32" }
+#   - { key: Key3, mods: Command, chars: "\x02\x33" }
+#   - { key: Key4, mods: Command, chars: "\x02\x34" }
+#   - { key: Key5, mods: Command, chars: "\x02\x35" }
+#   - { key: Key6, mods: Command, chars: "\x02\x36" }
+#   - { key: Key7, mods: Command, chars: "\x02\x37" }
+#   - { key: Key8, mods: Command, chars: "\x02\x38" }
+#   - { key: Key9, mods: Command, chars: "\x02\x39" }
+#   - { key: W, mods: Command, chars: "\x02\x78" }
+#   - { key: V, mods: Command, chars: "\x02\x25" }
+#   - { key: S, mods: Command, chars: "\x02\x22" }
+#   - { key: J, mods: Command, chars: "\x02\x6a" }
+#   - { key: L, mods: Command, chars: "\x02\x6c" }
+#   - { key: K, mods: Command, chars: "\x02\x6b" }
+# # Needs https://github.com/alacritty/alacritty/issues/5346#issuecomment-1055695103
+#   - { key: H, mods: Command, chars: "\x02\x68" }
 
 # 1b5b44
 # 021b5b440

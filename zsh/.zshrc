@@ -290,3 +290,20 @@ PERL_MM_OPT="INSTALL_BASE=/home/eos/perl5"; export PERL_MM_OPT;
 # export SDKMAN_DIR="$HOME/.sdkman"
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 # export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export SDKMAN_DIR="$HOME/.sdkman"
+
+# Faster sdkman
+cdsdkman() {
+    cd $1
+    if [ -e .sdkmanrc ] &&  [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]
+    then
+          printf ".sdkmanrc found in the current directory, do you want to source SDKMAN? (y/n) "
+          read yn
+          case $yn in
+              [Yy]*"" ) source "$HOME/.sdkman/bin/sdkman-init.sh";;
+              "" ) source "$HOME/.sdkman/bin/sdkman-init.sh";;
+          esac
+    fi
+}
+
+alias cd=cdsdkman

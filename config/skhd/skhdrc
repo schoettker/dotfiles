@@ -191,7 +191,13 @@ shift + alt - 9 : yabai -m window --space 9; skhd -k "ctrl - 9"
 shift + alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
+# --grid 8:12:1:1:10:6
+#  = 8 rows, 6 davon einehmen, starten bei 1 (hoehe)
+#  = 12 cols, 10 davon einehmen, starten bei 1 (breite)
+alt - f : yabai -m window --toggle float --grid 10:12:2:1:8:8
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+
+# Disable mac default command-h to hide windows
+# cmd - h : :

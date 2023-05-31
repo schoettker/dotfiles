@@ -55,7 +55,7 @@ nnoremap g]    :action VcsShowNextChangeMarker<CR>
 vnoremap g]    :action VcsShowNextChangeMarker<CR>
 
 nnoremap <leader><leader> :action emacsIDEAs.AceJumpWord<CR>
-" if this still gets overwritten go into ~/.intellimacs/extra/settings.vim to deactivate
+" if this still gets overwritten go into ~/.intellimacs/extra/settings.vim to deactivate set ReplaceWithRegister by commenting it out
 set ReplaceWithRegister&
 unmap grr
 nnoremap gr :action ShowUsages<CR>

@@ -1,7 +1,7 @@
 [user]
 	email = lennartschoettker@hotmail.com
 	# email = lschoettker@spotify.com
-	name = Lennart Schoettker
+	name = Lennart Schöttker
 [core]
 	excludesfile = /home/chinchi/.gitignore_global
 	pager = cat

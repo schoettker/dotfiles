@@ -1,12 +1,12 @@
-source ~/.intellimacs/spacemacs.vim
+source ~/.config/intellimacs/spacemacs.vim
 
 " (Optional) Enable other Intellimacs modules
-source ~/.intellimacs/extra.vim
-source ~/.intellimacs/major.vim
-source ~/.intellimacs/hybrid.vim
+source ~/.config/intellimacs/extra.vim
+source ~/.config/intellimacs/major.vim
+source ~/.config/intellimacs/hybrid.vim
 
 " (Optional) Enable which-key plugin
-source ~/.intellimacs/which-key.vim
+source ~/.config/intellimacs/which-key.vim
 
 " (Optional) My own vim commands
 nnoremap Y y$

@@ -27,11 +27,15 @@ key_bindings:
 
 window:
   padding:
-    x: 18
-    y: 16
+    x: 2
+    y: 5
   dynamic_padding: false
   dynamic_title: false
   decorations: buttonless
+  opacity: 0.65
+  dimensions:
+    columns: 250
+    lines: 65
 
 # Ubuntu Mono (Nerd patch) seems to be the closest to Bront which is wrongly
 # patched

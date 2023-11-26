@@ -104,6 +104,7 @@ bindkey '^f' autosuggest-accept
 #alias vim=emacs
 #alias nvim=emacsclient
 alias vim=nvim
+alias nvim=nvim
 alias battery='cat /sys/class/power_supply/BAT0/capacity'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias v=nvim

@@ -36,7 +36,7 @@ window:
 # Ubuntu Mono (Nerd patch) seems to be the closest to Bront which is wrongly
 # patched
 font:
-  size: 15
+  size: 18
   normal:
     #family: "JetBrainsMono Nerd Font"
     #    family: "Bront Nerd Font"
@@ -44,15 +44,17 @@ font:
     #style: "Book"
     # family: "UbuntuMono Nerd Font Mono"
     # style: "Regular"
-    family: "MesloLGS NF"
+    # family: "MesloLGS NF"
+    family: "DroidSansMono Nerd Font"
     style: "Regular"
   bold:
     #    family: "JetBrainsMono Nerd Font"
     #    style: "Medium"
     # family: "UbuntuMono Nerd Font Mono"
     # style: "Regular"
-    family: "MesloLGS NF"
-    style: "Regular"
+    # family: "MesloLGS NF"
+    family: "DroidSansMono Nerd Font"
+    style: "Bold"
 
 # colors:
 #     # Default colors

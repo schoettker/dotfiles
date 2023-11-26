@@ -1,3 +1,9 @@
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
 key_bindings:
   # - { key: T, mods: Control|Shift, action: SpawnNewInstance }
   # tmux keybindings (obtained via `xxd -ps`)

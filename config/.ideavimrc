@@ -60,3 +60,6 @@ set ReplaceWithRegister&
 unmap grr
 nnoremap gr :action ShowUsages<CR>
 nnoremap gR :action FindUsages<CR>
+
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'

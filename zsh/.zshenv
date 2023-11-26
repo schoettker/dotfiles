@@ -1,6 +1,7 @@
 ### Comment stuff in as the need arises ###
 
-export EDITOR="/usr/bin/nvim"
+# export EDITOR="/usr/bin/nvim"
+export EDITOR="/opt/homebrew/bin/nvim"
 export LIBVA_DRIVER_NAME=iHD
 export GST_VAAPI_ALL_DRIVERS=1
 export _JAVA_AWT_WM_NONREPARENTING=1

@@ -9,7 +9,9 @@ function upperHalf(win)
 end
 
 local defaultModifier = {"cmd", "alt", "ctrl"}
-hs.hotkey.bind(defaultModifier, "Left", function()
+
+
+local function floatLeft()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -20,9 +22,11 @@ hs.hotkey.bind(defaultModifier, "Left", function()
   f.w = max.w / 2
   f.h = max.h
   win:setFrame(f)
-end)
+end
 
-hs.hotkey.bind(defaultModifier, "Right", function()
+hs.hotkey.bind(defaultModifier, "Left", floatLeft)
+
+local function floatRight()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -33,7 +37,8 @@ hs.hotkey.bind(defaultModifier, "Right", function()
   f.w = max.w / 2
   f.h = max.h
   win:setFrame(f)
-end)
+end
+hs.hotkey.bind(defaultModifier, "Right", floatRight)
 
 
 hs.hotkey.bind(defaultModifier, "Up", function()
@@ -66,7 +71,7 @@ end)
 
 local xWidthToggle = 48
 local yHeightToggle = 12
-hs.hotkey.bind(defaultModifier, "Return", function()
+local function centerToggle()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -90,7 +95,9 @@ hs.hotkey.bind(defaultModifier, "Return", function()
   f.h = max.h - paddingY
 
   win:setFrame(f)
-end)
+end
+
+hs.hotkey.bind(defaultModifier, "Return", centerToggle)
 
 local function focusApp(appName)
 	return function()
@@ -182,15 +189,76 @@ local function biko()
     hs.alert.show("todo implement")
 end
 
+function obsidianAndEmacs()
+  toggleAppFocus("emacs")()
+  obsidianWithTodayNote()
+end
+
+
+function obsidianWithTodayNote()
+  -- see
+  -- https://github.com/liamcain/obsidian-periodic-notes/blob/f3d7266cdeb59b6f17a18a728c04219e19bac07d/src/commands.ts#L99
+  -- https://vinzent03.github.io/obsidian-advanced-uri/actions/commands
+  hs.execute("open -a /Applications/Obsidian.app --background 'obsidian://advanced-uri?vault=dizzy&commandid=periodic-notes%253Aopen-daily-note'")
+end
+
+local firstAlacrittyLaunch = true
+function centerAlacritty(appName, eventType, app)
+    if firstAlacrittyLaunch then
+      firstAlacrittyLaunch = false
+      if appName == "Alacritty" and eventType == hs.application.watcher.activated  then
+        centerToggle()
+      end
+    end
+end
+alacrittyWatcher = hs.application.watcher.new(centerAlacritty):start()
+
+
+local firstEmacsLaunch = true
+function leftpanEmacs(appName, eventType, app)
+    if firstEmacsLaunch then
+      firstEmacsLaunch = false
+      if appName == "Emacs" then
+        if eventType == hs.application.watcher.activated  then
+          floatLeft()
+        end
+        if eventType == hs.application.watcher.terminated  then
+          firstEmacsLaunch = true
+        end
+      end
+    end
+end
+emacsWatcher = hs.application.watcher.new(leftpanEmacs):start()
+
+
+local firstObsidianLaunch = true
+function rightPanObsidian(appName, eventType, app)
+    if firstObsidianLaunch then
+      firstObsidianLaunch = false
+      if appName == "Obsidian" then 
+        if eventType == hs.application.watcher.activated  then
+          floatRight()
+        end
+        if eventType == hs.application.watcher.terminated  then
+          firstObsidianLaunch = true
+        end
+      end
+    end
+end
+obsidianWatcher = hs.application.watcher.new(rightPanObsidian):start()
+
+
 -- for more apps, run
 -- $ ls /Applications
 hs.hotkey.bind({}, "F1", toggleAppFocus("Google Chrome"))
 hs.hotkey.bind({}, "F2", biko)
 hs.hotkey.bind({}, "F3", toggleAppFocus("IntelliJ IDEA"))
-hs.hotkey.bind({}, "F4", toggleAppFocus("Obsidian"))
+hs.hotkey.bind({}, "F4", obsidianAndEmacs)
 hs.hotkey.bind({}, "F5", toggleAppFocus("Slack"))
-hs.hotkey.bind({}, "F7", trika("Alacritty"))
-hs.hotkey.bind({}, "F8", triko)
+-- hs.hotkey.bind({}, "F7", trika("Alacritty"))
+hs.hotkey.bind({}, "F7", toggleAppFocus("Alacritty"))
+hs.hotkey.bind({}, "F8", toggleAppFocus("Spotify"))
+-- hs.hotkey.bind({}, "F8", triko)
 hs.hotkey.bind({}, "F9", toggleAppFocus("Bitwarden"))
 -- hs.hotkey.bind(cmd2, "1", weakFocus("Slack"))
 -- hs.hotkey.bind(cmd2, "2", focusApp("Google Chrome"))
@@ -220,3 +288,4 @@ hs.hotkey.bind({}, "F9", toggleAppFocus("Bitwarden"))
 
 
 -- also check https://rakhesh.com/coding/using-hammerspoon-to-switch-apps/
+

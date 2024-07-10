@@ -231,7 +231,7 @@ case $TERM in
 esac
 
 
-# source ~/.nvm/nvm.sh
+source ~/.config/nvm/nvm.sh
 alias npm-default-registry='npm config set registry https://registry.npmjs.org'
 alias npm-spotify-registry='npm config set registry https://artifactory.spotify.net/artifactory/api/npm/virtual-npm'
 alias work="$HOME/dotfiles/scripts/work"

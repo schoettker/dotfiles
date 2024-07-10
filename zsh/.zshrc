@@ -299,6 +299,9 @@ whatsapp() {
 export SDKMAN_DIR="$HOME/.sdkman"
 alias jdk='source "$HOME/.sdkman/bin/sdkman-init.sh"'
 
+export BUILDTOOLS_XCODE_OVERRIDE=/Applications/Xcode.app
+export PATH="$HOME/work/client-core/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # Faster sdkman
 cdsdkman() {
     cd $1

@@ -137,6 +137,36 @@ local function hmm()
   hs.window.find("togglity")
 end
 
+
+local function wezterm()
+  local focusedApp = hs.application.frontmostApplication()
+  local wezApp = hs.application.get("wezterm")
+  local wez = hs.window.find("wezterm")
+  -- print(wezApp)
+  -- print(wezApp:title())
+  if not (wezApp == nil) and (wezApp:title() == "WezApp" or wezApp:title() == "wezterm-gui") and wezApp:isRunning() then
+    if focusedApp == wezApp then
+      wezApp:hide()
+    else
+      wezApp:activate()
+    end
+  else
+    os.execute("/opt/homebrew/bin/wezterm start --position 'main:0%,10%' &")
+  end
+
+  -- if focusedApp == targetApp then
+  --   targetApp:hide()
+  -- else 
+  -- hs.application.launchOrFocus(appName)
+  -- end
+  --
+  -- if not wez then
+  --   os.execute("/opt/homebrew/bin/wezterm start --position 'main:0%,10%' &")
+  -- else
+  --   wez:focus()
+  -- end
+end
+
 local function trika(appName)
   return function()
     local termTitle = "togglity"
@@ -161,14 +191,7 @@ local function trika(appName)
         termWindow:focus()
       end
     end
-
-
-
     -- local focusedWin = hs.window.frontmostWindow()
-
-
-
-
     -- local focusedApp = hs.application.frontmostApplication()
     -- local ti = focusedApp:title()
     -- hs.alert.show(ti)
@@ -257,7 +280,7 @@ hs.hotkey.bind({}, "F3", toggleAppFocus("IntelliJ IDEA Ultimate"))
 hs.hotkey.bind({}, "F4", obsidianAndEmacs)
 hs.hotkey.bind({}, "F5", toggleAppFocus("Slack"))
 -- hs.hotkey.bind({}, "F7", trika("Alacritty"))
-hs.hotkey.bind({}, "F7", toggleAppFocus("Alacritty"))
+hs.hotkey.bind({}, "F7", wezterm)
 hs.hotkey.bind({}, "F8", toggleAppFocus("Spotify"))
 -- hs.hotkey.bind({}, "F8", triko)
 hs.hotkey.bind({}, "F9", toggleAppFocus("Bitwarden"))

@@ -18,7 +18,8 @@ export ZSH=$HOME/.oh-my-zsh
 export GIT_EDITOR='nvim'
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# disable on m1 .. ?
+# export ARCHFLAGS="-arch x86_64"
 
 ## C# / Dotnet ##
 export DOTNET_ROOT=$HOME/arch/pkgs/dotnet 

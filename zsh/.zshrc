@@ -282,6 +282,10 @@ PERL_MB_OPT="--install_base \"/home/eos/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/eos/perl5"; export PERL_MM_OPT;
 
 
+whatsapp() {
+   ffmpeg -i $1 -c copy whatsapp-$1 && rm $1
+}
+
 
 #source "/usr/share/fzf/key-bindings.zsh"
 #source "/usr/share/fzf/completion.zsh"

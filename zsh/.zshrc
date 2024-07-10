@@ -297,6 +297,7 @@ whatsapp() {
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 # export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
+alias jdk='source "$HOME/.sdkman/bin/sdkman-init.sh"'
 
 # Faster sdkman
 cdsdkman() {
@@ -312,4 +313,17 @@ cdsdkman() {
     fi
 }
 
-alias cd=cdsdkman
+# alias cd=cdsdkman
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+source /Users/lschoettker/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

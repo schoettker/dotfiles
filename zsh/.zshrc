@@ -48,6 +48,9 @@ zinit cdreplay -q # recommended optimization to reuse cached completions
 bindkey -e
 bindkey '^p' history-search-backward # consider same thing for arrow keys?
 bindkey '^n' history-search-forward
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line # ctrl-x ctrl-e to open prompt in nvim!!!
 
 # History
 HISTSIZE=50000

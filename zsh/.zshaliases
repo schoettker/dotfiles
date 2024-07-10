@@ -1,0 +1,40 @@
+#alias vim=emacs
+#alias nvim=emacsclient
+alias vim=nvim
+alias nvim=nvim
+alias battery='cat /sys/class/power_supply/BAT0/capacity'
+alias bat='cat /sys/class/power_supply/BAT0/capacity'
+alias v=nvim
+alias p=pcmanfm .
+#alias htop=btm
+alias top=btm
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
+alias magit="emacs -nw --funcal=magit-status"
+alias gittouch='git commit --amend --date="$(date -R)"'
+alias dired="emacs -nw --funcal=dired"
+alias tmr="\tmux rename-window"
+alias mp3="youtube-dl --extract-audio --audio-format mp3"
+alias ydl="yt-dlp"
+alias uni="cd ~/library/docs/universe/ && marktext ."
+alias chrome="google-chrome-stable"
+alias ls="exa -bhlg"
+alias l="exa"
+alias cat="\bat"
+alias '?'="type -a"
+alias doom-force-upgrade="cd ~/.emacs.d && rm -rf .local && git pull && doom install"
+
+
+alias work="$HOME/dotfiles/scripts/work"
+alias jdk='source "$HOME/.sdkman/bin/sdkman-init.sh"'
+alias npm-default-registry='npm config set registry https://registry.npmjs.org'
+alias npm-spotify-registry='npm config set registry https://artifactory.spotify.net/artifactory/api/npm/virtual-npm'

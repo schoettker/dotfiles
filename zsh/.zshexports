@@ -1,0 +1,115 @@
+export TERM=xterm-256color
+
+export BROWSER="google-chrome-stable"
+export GIT_EDITOR='nvim'
+export EDITOR="/opt/homebrew/bin/nvim"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export FZF_DEFAULT_COMMAND='fd --type f'
+
+# Compilation flags
+# disable on m1 
+# export ARCHFLAGS="-arch x86_64"
+
+# Android
+# export ANDROID_HOME=$HOME/arch/Android
+# export PATH=$PATH:$ANDROID_HOME/emulator
+
+## C# / Dotnet ##
+# export DOTNET_ROOT=$HOME/arch/pkgs/dotnet 
+# export PATH=$PATH:$HOME/arch/pkgs/dotnet
+
+## Go ##
+export GOPATH="$HOME/dev/go"
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+
+## Java ##
+# export JAVA_HOME=/usr/bin/java
+# export PATH=$PATH:/usr/lib/jvm
+
+## Node ##
+export PATH=$PATH:./node_modules/.bin
+export PATH="$PATH:$HOME/.node_modules/bin"
+source ~/.config/nvm/nvm.sh
+# export npm_config_prefix="~/.node_modules" ->  deprecated ?
+# source /usr/share/nvm/init-nvm.sh
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+## Python ##
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+## Ruby ##
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+# export PATH=$PATH:$HOME/.rbenv/bin
+# eval "$(rbenv init -)"
+# source $PATH:$HOME/.rvm/scripts/rvm
+
+# R
+# but in the end its easier to just sudo chown -R $USER /usr/lib/R
+# and maybe /usr/share
+# export R_LIBS="~/arch/pkgs/R"
+# export R_LIBS_USER="~/arch/pkgs/R"
+
+
+## Path ##
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.emacs.d/bin"
+
+
+# if [[ $TERM == xterm-termite ]]; then
+#   . /etc/profile.d/vte.sh
+#   __vte_osc7
+# fi
+
+# DISABLE_AUTO_TITLE="true"
+
+#function precmd () {
+#  window_title="\033]0;${PWD}\007"
+#  echo -ne "$window_title"
+#}
+
+# case $TERM in
+#   xterm*)
+#     precmd () {print -Pn "\e]0;%~\a"}
+#     ;;
+# esac
+
+
+whatsapp() {
+   ffmpeg -i $1 -c copy whatsapp-$1 && rm $1
+}
+
+## Work ##
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export BUILDTOOLS_XCODE_OVERRIDE=/Applications/Xcode.app
+export PATH="$HOME/work/client-core/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# Faster sdkman
+cdsdkman() {
+    cd $1
+    if [ -e .sdkmanrc ] &&  [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]
+    then
+          printf ".sdkmanrc found in the current directory, do you want to source SDKMAN? (y/n) "
+          read yn
+          case $yn in
+              [Yy]*"" ) source "$HOME/.sdkman/bin/sdkman-init.sh";;
+              "" ) source "$HOME/.sdkman/bin/sdkman-init.sh";;
+          esac
+    fi
+}
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+source /Users/lschoettker/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export GHE_ACCESS_TOKEN=*****

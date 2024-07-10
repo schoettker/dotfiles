@@ -1,7 +1,9 @@
 [user]
+	; email = lschoettker@spotify.com
 	email = lennartschoettker@hotmail.com
-	# email = lschoettker@spotify.com
 	name = Lennart Schöttker
+[includeIf "gitdir:~/work/"]
+	path = .gitconfig-work
 [core]
 	excludesfile = /home/chinchi/.gitignore_global
 	pager = cat

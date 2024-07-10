@@ -15,6 +15,24 @@ let g:WhichKeyDesc_Misc_JumpToDefinition = "gd jump-to-definition"
 nnoremap <leader>gd    :action GotoDeclaration<CR>
 vnoremap <leader>gd    <Esc>:action GotoDeclaration<CR>
 
+" Go to implementation
+let g:WhichKeyDesc_Major_Goto_Implementation = "gi goto-implementation"
+nnoremap gi    :action GotoImplementation<CR>
+vnoremap gi    <Esc>:action GotoImplementation<CR>
+
+" Go to supermethod
+let g:WhichKeyDesc_Major_Goto_SuperMethod = "gI goto-superMethod"
+nnoremap gI    :action GotoSuperMethod<CR>
+vnoremap gI    <Esc>:action GotoSuperMethod<CR>
+
+
+" Show Hover Info
+let g:WhichKeyDesc_Major_Show_HoverInfo = "gh ShowHoverInfo"
+nnoremap gh    :action ShowHoverInfo<CR>
+vnoremap gh    <Esc>:action ShowHoverInfo<CR>
+nnoremap K    :action ShowHoverInfo<CR>
+vnoremap K    <Esc>:action ShowHoverInfo<CR>
+
 " Collapse all folds
 let g:WhichKeyDesc_Misc_CloseFolds = "zm close-folds"
 nnoremap zm    :action CollapseAllRegions<CR>

@@ -2,6 +2,7 @@
 let g:WhichKeyDesc_Projects_OpenShell = "<leader>p! open-shell"
 nnoremap <leader>p!    :action ActivateTerminalToolWindow<CR>
 vnoremap <leader>p!    :action ActivateTerminalToolWindow<CR>
+" nnoremap <c-a>         :action ActivateTerminalToolWindow<CR>
 
 " Toggle between implementation file and its test file
 let g:WhichKeyDesc_Projects_ToggleBetweenImplAndTestFile = "<leader>pa toggle-between-impl-and-test-file"
@@ -46,9 +47,9 @@ nnoremap <leader>pI    :action InvalidateCaches<CR>
 vnoremap <leader>pI    :action InvalidateCaches<CR>
 
 " Recent projects
-let g:WhichKeyDesc_Projects_RecentProjects = "<leader>pp recent-projects"
-nnoremap <leader>pp    :action ManageRecentProjects<CR>
-vnoremap <leader>pp    :action ManageRecentProjects<CR>
+let g:WhichKeyDesc_Projects_RecentProjects = "<leader>ps recent-projects"
+nnoremap <leader>ps    :action ManageRecentProjects<CR>
+vnoremap <leader>ps    :action ManageRecentProjects<CR>
 
 " Replace in path
 let g:WhichKeyDesc_Projects_ReplaceInFiles = "<leader>pR replace-in-files"

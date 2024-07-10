@@ -20,3 +20,8 @@ vnoremap <leader>rs    :action FindInPath<CR>
 let g:WhichKeyDesc_RegistersRingsResume_ShowKillRing = "<leader>ry show-kill-ring"
 nnoremap <leader>ry    :action PasteMultiple<CR>
 vnoremap <leader>ry    :action PasteMultiple<CR>
+
+" Recent locations
+let g:WhichKeyDesc_RecentLocations = "<leader>rl recent-locations"
+nnoremap <leader>rl    :action RecentLocations<CR>
+vnoremap <leader>rl    :action RecentLocations<CR>

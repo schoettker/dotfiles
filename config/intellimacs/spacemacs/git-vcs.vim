@@ -13,9 +13,9 @@ vnoremap <leader>gfl    :action Vcs.ShowTabbedFileHistory<CR>
 """ ---------------------------------------------
 
 " Git init
-let g:WhichKeyDesc_GitVcs_Init = "<leader>gi init"
-nnoremap <leader>gi    :action Git.Init<CR>
-vnoremap <leader>gi    :action Git.Init<CR>
+" let g:WhichKeyDesc_GitVcs_Init = "<leader>gi init"
+" nnoremap <leader>gi    :action Git.Init<CR>
+" vnoremap <leader>gi    :action Git.Init<CR>
 
 " Show local changes (git status)
 let g:WhichKeyDesc_GitVcs_Status = "<leader>gs status"

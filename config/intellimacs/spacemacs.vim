@@ -1,4 +1,6 @@
 """ This file contains default spacemacs settings and key bindings
+" Plugins
+source ~/.config/intellimacs/spacemacs/plugins.vim
 
 " Settings
 source ~/.config/intellimacs/spacemacs/settings.vim

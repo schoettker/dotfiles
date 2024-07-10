@@ -13,3 +13,6 @@
 # 	recurse = true
 [push]
 	autoSetupRemote = true
+
+[submodule]
+	recurse = true

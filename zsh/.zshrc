@@ -292,10 +292,9 @@ whatsapp() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Work specific settings -> comment in as needed
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-# export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 alias jdk='source "$HOME/.sdkman/bin/sdkman-init.sh"'
 

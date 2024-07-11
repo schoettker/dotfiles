@@ -113,3 +113,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export GHE_ACCESS_TOKEN=*****
+# Consider setting sdkman_auto_env=true in ~/.sdkman/etc/config to autoswitch java versions
+
